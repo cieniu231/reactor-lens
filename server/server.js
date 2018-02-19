@@ -1,18 +1,14 @@
 import express from 'express';
-import corsPrefetch from 'cors-prefetch-middleware';
 import imagesUpload from 'images-upload-middleware';
-import {MongoClient, ObjectID} from 'mongodb';
-import bodyParser from 'body-parser';
-
-import {SERVER, PORT, HTTP_SERVER_PORT, HTTP_SERVER_PORT_IMAGES, IMAGES} from './constants';
-
+import {MongoClient} from 'mongodb';
+import {SERVER, PORT, HTTP_SERVER_PORT_IMAGES, IMAGES} from './constants';
+import {middleware} from "./middleware";
 
 const app = express();
-app.use(express.static(__dirname + '/../static'));
-app.use(bodyParser.json());
-app.use(corsPrefetch);
 
-let db; // global variable for getting an access to the database
+middleware(app);
+
+let db;
 MongoClient.connect('mongodb://' + SERVER)
     .then(connection => {
         db = connection.db('dbCities');
@@ -24,4 +20,12 @@ app.post('/images', imagesUpload(
     './static/' + IMAGES,
     HTTP_SERVER_PORT_IMAGES
 ));
+
+app.get('/api/city', (req, res) => {
+    db.collection('cities').find({}).toArray((err, docs) => {
+        return res.status(200).json(docs);
+    });
+});
+
+// app.use('/api/things', require('./api/thing'));
 
