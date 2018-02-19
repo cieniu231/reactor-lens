@@ -1,7 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
-
-import ImagesUploader from 'react-images-uploader';
+import {Button} from 'semantic-ui-react';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
 
@@ -16,6 +14,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
+                <Button>Click Here</Button>
                 <h1>My Cities... The places to be!</h1>
                 <p> You can find in this website many cities with beautiful places, events (festivals, concerts and so on).
                     Please, join us, and you will have the possibilities to participate to this new social network. <br />
