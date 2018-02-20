@@ -9,8 +9,8 @@ const Routes = (props) => (
         <Route path="/" component={Home}>
             <Route path="/city/:id" component={CityPage}/>
             <Route path="/city" component={CityList}/>
+            <Route path="*" component={() => <p>Page Not Found</p>}/>
         </Route>
-        <Route path="*" component={() => <p>Page Not Found</p>}/>
     </Router>
 );
 
