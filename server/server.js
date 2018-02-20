@@ -1,6 +1,6 @@
 import express from 'express';
 import imagesUpload from 'images-upload-middleware';
-import {MongoClient} from 'mongodb';
+import {MongoClient, ObjectID} from 'mongodb';
 import {SERVER, PORT, HTTP_SERVER_PORT_IMAGES, IMAGES} from './constants';
 import {middleware} from "./middleware";
 
@@ -22,9 +22,18 @@ app.post('/images', imagesUpload(
 ));
 
 app.get('/api/city', (req, res) => {
-    db.collection('cities').find({}).toArray((err, docs) => {
-        return res.status(200).json(docs);
-    });
+    db.collection('cities').find({})
+        .toArray((err, docs) => {
+            return res.status(200).json(docs);
+        });
+});
+
+app.get('/api/city/:id', (req, res) => {
+    db.collection('cities').findOne({"_id": ObjectID(req.params.id)})
+        .then(city => res.status(200).json(city))
+        .catch(error => {
+            res.status(404).json({message: `No such city with id : ${req.params.id}`});
+        });
 });
 
 // app.use('/api/things', require('./api/thing'));
