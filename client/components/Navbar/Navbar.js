@@ -27,10 +27,10 @@ export class Navbar extends Component {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column floated='left' only='tablet mobile'>
-                            {/*<Icon name='bars' onClick={this.props.toggleMenu}/>*/}
+                            <Icon name='bars' onClick={this.props.toggleMenu}/>
                         </Grid.Column>
                         <Grid.Column floated='left' width={4}>
-                            <Link to='/'><img src="http://localhost:9090/images/logo.png" style={{maxHeight: 80}} alt="logo"/></Link>
+                            <Link to='city'><img src="http://localhost:9090/images/logo.png" style={{maxHeight: 80}} alt="logo"/></Link>
                         </Grid.Column>
                         <Grid.Column floated='right' textAlign='right' width={8} verticalAlign='middle'>
 
