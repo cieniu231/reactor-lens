@@ -24,6 +24,7 @@
     "cors-prefetch-middleware": "^1.0.0",
     "css-loader": "^0.28.8",
     "express": "^4.16.2",
+    "google-map-react": "^0.31.0",
     "images-upload-middleware": "^1.1.1",
     "mongodb": "^3.0.1",
     "react-images-uploader": "^1.1.0",
