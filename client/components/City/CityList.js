@@ -30,7 +30,7 @@ export class CityList extends React.Component {
                             {c.name}
                         </Card.Header>
                         <Card.Meta>
-                            {c.coordinates.long + ', ' + c.coordinates.lat}
+                            {(c.coordinates || {}).long + ', ' + (c.coordinates || {}).lat}
                         </Card.Meta>
                     </Card.Content>
                     <Card.Content extra>

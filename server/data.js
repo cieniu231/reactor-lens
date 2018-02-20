@@ -130,5 +130,38 @@ var boulogne = {
     picture: '/images/Boulogne/centre.jpg',
     activities: []
 };
+var galway = {_id: ObjectId(), name: 'Galway', coordinates: {long: "42.412", lat: "4.33"}, description: "Facts:\n" +
+" Third largest city in Ireland (75-80k people)\n" +
+" John F Kennedy visited Galway in the 1970s\n" +
+" In 2007 Galway was ranked 6/8 top sexiest cities in the world\n" +
+" Galway was also ranked as one of the top 50 best tourist destinations in 2008\n" +
+" Over 6k Irish Speakers reside in Galway city\n" +
+" Galway has a vibrant lifestyle with many cultural events and festivals year-round.\n" +
+"Events:\n" +
+" Galway International Rally\n" +
+" Galway Theatre Festival\n" +
+" Galway Fringe Festival\n" +
+" Galway International Arts Festival\n" +
+" Galway Races\n" +
+" Galway Dance Days Festival\n" +
+"Irish/traditional Events:\n" +
+" Aran Celtic Music Festival\n" +
+" St. Patrick&#39;s Day Festival\n" +
+" Connacht Sheep Shearing Festival\n" +
+" Conamara Bog Week\n" +
+" Traidphicnic\n" +
+" Connemara Pony Festival\n" +
+" Galway Heritage Week\n" +
+" Féile Cheoil Larry Reynolds\n" +
+" Galway Culture Night\n" +
+"Places to see:\n" +
+" Galway Cathedral\n" +
+" Eyre Square/JFK Square\n" +
+" The Claddagh\n" +
+" Spanish Arch\n" +
+" Salmon Weir Bridge (in summer)\n" +
+" St. Nicholas&#39; Church (biggest church in Ireland)", picture: '/images/galway.jpg', activities: [{
+    name: 'Galway Fringe Festival'
+}]};
 db.cities.drop();
-db.cities.insert([aix, boulogne]);
+db.cities.insert([aix, boulogne, galway]);
