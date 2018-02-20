@@ -2,6 +2,8 @@ import {Card, Loader, Button, Image} from "semantic-ui-react";
 import React from "react";
 import {Link} from 'react-router';
 import {HTTP_SERVER_PORT} from "../../../server/constants";
+import CityForm from "./CityForm";
+
 
 export class CityList extends React.Component {
     constructor(props) {
@@ -44,7 +46,7 @@ export class CityList extends React.Component {
             });
 
 
-            return (<div className="cityList">{citiesComponents}</div>);
+            return (<div className="cityList">{citiesComponents} <CityForm/> </div>);
 
         } else {
             return (<Loader indeterminate>Fetching data</Loader>);

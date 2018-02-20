@@ -36,5 +36,15 @@ app.get('/api/city/:id', (req, res) => {
         });
 });
 
+app.post('/api/cities', (req, res) => {
+    db.collection('cities').insertOne(req.body, (error, result) => {
+        if (error)
+            res.status(500).json({message: `Internal Server Error : ${error}`});
+        else
+            res.status(200).json({message: `Success`});
+    });
+});
+
+
 // app.use('/api/things', require('./api/thing'));
 
