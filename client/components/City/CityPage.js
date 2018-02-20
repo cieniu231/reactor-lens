@@ -46,9 +46,8 @@ export class CityPage extends React.Component {
         if (typeof city !== 'undefined') {
             return (
                 <div>
-                    <Image src={city.picture} size='medium' circular/>
-                    <Header size='huge'>{city.name}</Header>
-                    <Header size='small'>{city.coordinates.long},{city.coordinates.lat}</Header>
+                    <Image src={city.picture} size='medium' circular centered/>
+                    <Header size='huge' style={{textAlign: 'center'}}>{city.name}<small> ({city.coordinates.long},{city.coordinates.lat})</small></Header>
                     <Container>
                         {city.description}
                     </Container>

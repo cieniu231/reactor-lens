@@ -26,7 +26,7 @@ export class Navbar extends Component {
             <div className="Navbar">
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column floated='left' only='tablet mobile'>
+                        <Grid.Column floated='left'>
                             <Icon name='bars' onClick={this.props.toggleMenu}/>
                         </Grid.Column>
                         <Grid.Column floated='left' width={4}>
