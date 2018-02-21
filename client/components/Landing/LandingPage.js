@@ -19,7 +19,6 @@ export class LandingPage extends React.Component {
                 <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#00bf00'}}>Last activities added</Divider>
                 <ActivityList style={{justifyContent: 'center', alignContent : 'center'}}/>
                 <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#3d3aaf'}}>Last cities added</Divider>
-                <Divider horizontal style={{marginTop : '30px', fontSize : '20pt',}}>Last cities added</Divider>
                 <CityList style={{justifyContent: 'center', alignContent : 'center'}}/>
              
             </div>

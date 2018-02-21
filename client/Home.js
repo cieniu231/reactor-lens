@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Segment, Divider} from 'semantic-ui-react';
 import {Navbar} from './components/Navbar/Navbar';
+import {Footer} from './components/Footer/Footer';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
 import {Icon, Menu, Sidebar} from "semantic-ui-react";
@@ -45,6 +46,7 @@ export default class Home extends React.Component {
                         <Segment basic className='Side'>
                             <Navbar toggleMenu={() => this.setState({menuOpened: !this.state.menuOpened})}/>
                             {this.props.children}
+                            <Footer />
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>

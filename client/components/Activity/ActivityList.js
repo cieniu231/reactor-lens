@@ -30,8 +30,11 @@ export class ActivityList extends React.Component {
         });
 
 
-        return (<div className="cityList"
-                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{activitiesComponents}</div>);
+        return (
+            <div>
+                <div className="cityList" style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{activitiesComponents}</div>
+            </div>
+        );
     }
 
     render() {
