@@ -3,8 +3,7 @@ import {Button, Segment, Divider} from 'semantic-ui-react';
 import {Navbar} from './components/Navbar/Navbar';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
-import {Navbar} from "./components/Navbar/Navbar";
-import {Icon, Menu, Segment, Sidebar} from "semantic-ui-react";
+import {Icon, Menu, Sidebar} from "semantic-ui-react";
 import {Link} from "react-router";
 
 // import { toggleIcon } from './custom';
