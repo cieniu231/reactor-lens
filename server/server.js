@@ -36,6 +36,35 @@ app.get('/api/city/:id', (req, res) => {
         });
 });
 
+app.get('/api/activity', (req, res) => {
+    db.collection('activities').find({}).sort({ "$natural": -1 })
+        .toArray((err, docs) => {
+            return res.status(200).json(docs);
+        });
+});
+
+app.get('/api/activity/:id', (req, res) => {
+    db.collection('activities').findOne({"_id": ObjectID(req.params.id)})
+        .then(city => res.status(200).json(city))
+        .catch(error => {
+            res.status(404).json({message: `No such activity with id : ${req.params.id}`});
+        });
+});
+
+app.post('/api/activity', (req, res) => {
+    db.collection('activities').insertOne(req.body, (error, result) => {
+        res.status(error ? 500 : 200).json(error ? error : result);
+    });
+});
+
+app.delete('/api/activity/:id', (req, res) => {
+    db.collection('activities').deleteOne({"_id": ObjectID(req.params.id)})
+        .then(city => res.status(200).json(city))
+        .catch(error => {
+            res.status(404).json({message: `No such activity with id : ${req.params.id}`});
+        });
+});
+
 app.post('/api/cities', (req, res) => {
     db.collection('cities').insertOne(req.body, (error, result) => {
         if (error)
