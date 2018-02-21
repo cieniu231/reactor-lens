@@ -31,26 +31,6 @@ export class CityPage extends React.Component {
     }
 
     render() {
-        let {city} = this.state;
-        if (typeof city !== 'undefined') {
-            return (
-                <div>
-                    <Image src={city.picture} size='medium' circular centered/>
-                    <Header style={{textAlign:'center',}} className='CityName'     size='huge'>{city.name}
-                        <i className='fas fa-compass'/><small>({city.coordinates.long},{city.coordinates.lat})</small>
-                    </Header>
-
-                    <Container style={{fontSize :'12pt',}}>
-                        {city.description}
-                    </Container>
-                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent :'center', alignContent :'center', marginTop : '50px',}}>
-                        {this.renderActivities()}
-                    </div>
-                </div>
-            );
-        } else {
-            return (<Loader indeterminate>Fetching data</Loader>);
-        }
 
         let {creating, cities} = this.state;
         return (

@@ -1,22 +1,18 @@
-import {Card, Loader, Button, Dimmer, Image, Icon} from "semantic-ui-react";
+import {Card, Loader, Button, Image} from "semantic-ui-react";
 import React from "react";
 import {Link} from 'react-router';
-import {HTTP_SERVER_PORT} from "../../../server/constants";
-import {CityForm2} from "./CityForm";
-
 
 export class CityList extends React.Component {
-
     renderCitiesList() {
         let {cities} = this.props;
         let citiesComponents = [];
 
         cities.forEach(c => {
             citiesComponents.push((<div key={c._id}>
-                <Card style={{marginLeft : '15px', marginRight : '15px', border : '1px solid #3d3aaf'}}>
+                <Card style={{marginLeft: '15px', marginRight: '15px', border: '1px solid #3d3aaf'}}>
                     <Card.Content>
                         <Image src={c.picture}/>
-                        <Card.Header style={{paddingTop : '20px',}}>
+                        <Card.Header style={{paddingTop: '20px',}}>
                             {c.name}
                         </Card.Header>
                         <Card.Meta>
@@ -38,24 +34,16 @@ export class CityList extends React.Component {
         return (<div className="cityList"
                      style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>
             {citiesComponents}
-
         </div>);
-
     }
 
     render() {
         let {cities} = this.props;
 
-        if (cities.length) {
-            return (
-                <div>
-                    {this.renderCitiesList()}
-                </div>);
-
+        if (cities && cities.length) {
+            return (this.renderCitiesList());
         } else {
             return (<Loader indeterminate>Fetching data</Loader>);
         }
-
-
     }
 }

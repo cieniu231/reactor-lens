@@ -3,9 +3,17 @@ import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
 import {Divider, Header} from 'semantic-ui-react';
 import {CityList} from '../City/CityList';
+import {ApiService} from "../../services/ApiService";
 
 export class LandingPage extends React.Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            cities: []
+        };
+        ApiService.get('/api/city')
+            .then(cities => this.setState({cities}));
+    }
 
     render() {
         return (
@@ -17,7 +25,7 @@ export class LandingPage extends React.Component {
                 </div>
 
                 <Divider horizontal style={{marginTop : '30px', fontSize : '20pt',}}>Last cities added</Divider>
-                <CityList style={{justifyContent: 'center', alignContent : 'center'}}/>
+                <CityList cities={this.state.cities || []} style={{justifyContent: 'center', alignContent : 'center'}}/>
              
             </div>
         );
