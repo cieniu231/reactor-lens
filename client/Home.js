@@ -1,12 +1,13 @@
 import React from 'react';
+import {Button, Segment, Divider} from 'semantic-ui-react';
+import {Navbar} from './components/Navbar/Navbar';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
-import {Navbar} from "./components/Navbar/Navbar";
-import {Icon, Menu, Segment, Sidebar} from "semantic-ui-react";
+import {Icon, Menu, Sidebar} from "semantic-ui-react";
 import {Link} from "react-router";
 
-// https://blog.neufund.org/why-we-have-banned-default-exports-and-you-should-do-the-same-d51fdc2cf2ad
-// !!!!!!!!!
+// import { toggleIcon } from './custom';
+
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -19,6 +20,7 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Sidebar.Pushable as={Segment}>
+
                     <Sidebar as={Menu} animation='push' width='thin' visible={this.state.menuOpened} icon='labeled' vertical inverted>
                         <Link to='home'>
                             <Menu.Item name='home'>
@@ -46,7 +48,6 @@ export default class Home extends React.Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
-
             </div>
         );
     }
