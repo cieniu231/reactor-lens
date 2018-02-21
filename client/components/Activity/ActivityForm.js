@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Dropdown, Form, Header, Icon, Input, Segment} from "semantic-ui-react";
-import {HTTP_SERVER_PORT} from "../../../server/constants";
+import {ApiService} from '../../services/ApiService';
 
 export class ActivityForm extends React.Component {
     constructor(props) {
@@ -21,14 +21,8 @@ export class ActivityForm extends React.Component {
     }
 
     handleSubmit(event) {
-        const headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
-
-        fetch(HTTP_SERVER_PORT + '/api/activity', {
-            method: 'POST',
-            body: JSON.stringify(this.state),
-            headers: headers
-        })
-            .then(res => res.json())
+        debugger;
+        ApiService.post('/api/activity', this.state)
             .then(content => {
                 // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
                 this.props.closeForm();
@@ -77,7 +71,7 @@ export class ActivityForm extends React.Component {
                                           search selection options={options}/>
                             );
                         }} label='Nature' placeholder='Nature' name='nature' value={this.state.nature}/>
-                        <Form.Field control={() => <Input label='http://'/>} label='URL' placeholder='URL' name='url'
+                        <Form.Field control={() => <Input label='ApiService://'/>} label='URL' placeholder='URL' name='url'
                                     value={this.state.url} onChange={this.handleInputChange}/>
                         <Form.Field control={Button}>Save</Form.Field>
                     </Form>

@@ -1,6 +1,7 @@
 import React from "react";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Container, Header, Image, Loader} from "semantic-ui-react";
+import {ApiService} from "../../services/ApiService";
 
 export class SingleActivity extends React.Component {
     constructor(props) {
@@ -11,9 +12,8 @@ export class SingleActivity extends React.Component {
     }
 
     componentDidMount() {
-        fetch(HTTP_SERVER_PORT + '/api/activity/' + this.props.params.id)
-            .then(data => data.json())
-            .then(activity => this.setState({activity}))
+        ApiService.get('/api/activity/' + this.props.params.id)
+            .then(activity => this.setState({activity}));
     }
 
     render() {
@@ -28,6 +28,7 @@ export class SingleActivity extends React.Component {
                     <Container>
                         {activity.description}
                     </Container>
+
                 </div>
             );
         } else {
