@@ -42,7 +42,7 @@ export default class Home extends React.Component {
                         </Link>
                     </Sidebar>
                     <Sidebar.Pusher>
-                        <Segment basic>
+                        <Segment basic style={{minHeigt : '100vh',}}>
                             <Navbar toggleMenu={() => this.setState({menuOpened: !this.state.menuOpened})}/>
                             {this.props.children}
                         </Segment>
