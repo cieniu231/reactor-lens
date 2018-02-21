@@ -9,10 +9,19 @@ export class LandingPage extends React.Component {
 
     render() {
         return (
-            <div>
-                <img src="http://localhost:9090/images/carousel-img/paris.jpg" alt="Paris" />
-                <img src="http://localhost:9090/images/carousel-img/dubrovnik.jpg" alt="Dubrovnik" />
-                <img src="http://localhost:9090/images/carousel-img/saintpetersburg.jpg" alt="SaintPetersburg" />
+            <div id="landing-page">
+                <div id="search-container">
+                    <div id="search-overlay">
+                        <h1>Discover cities</h1>
+                    </div>
+                    <img src="images/carousel-img/paris.jpg" alt="Paris" />
+                </div>
+                <div id="last-events">
+                    <p>3 more recents cities added to database</p>
+                </div>
+                <div id="last-cities">
+                    <p>3 more recents events added to database</p>
+                </div>
             </div>
         );
     }
