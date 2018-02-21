@@ -1,27 +1,26 @@
 import React from 'react';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
+import {Divider, Header} from 'semantic-ui-react';
+import {CityList} from '../City/CityList';
 
 export class LandingPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    
 
     render() {
         return (
-            <div id="landing-page">
+            <div id="landing-page" style={{marginTop : '20px' }}>
                 <div id="search-container">
                     <div id="search-overlay">
-                        <h1>Discover cities</h1>
+                        <Header style={{position:'absolute', color : 'white', top: '30%', left : '50%' , textTransform : 'uppercase', fontSize:'44pt', transform :'translate(-50%, -50%)', borderBottom : 'solid 5px white', paddingBottom : '10px'}}>
+                            Lorem Ipsum dolor sit amet
+                        </Header>
                     </div>
-                    <img src="images/carousel-img/paris.jpg" alt="Paris" />
+                    <img src="images/carousel-img/paris.jpg" alt="Paris" style={{height : '400px', width : '100%'}} />
                 </div>
-                <div id="last-events">
-                    <p>3 more recents cities added to database</p>
-                </div>
-                <div id="last-cities">
-                    <p>3 more recents events added to database</p>
-                </div>
+                <Divider horizontal>Last cities added</Divider>
+                <CityList style={{justifyContent: 'center', alignContent : 'center'}}/>
+             
             </div>
         );
     }
