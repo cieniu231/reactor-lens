@@ -25,24 +25,15 @@ export class Navbar extends Component {
         return (
             <div className="Navbar">
                 <Grid>
-                    <Grid.Row>
-                        <Grid.Column floated='left'>
-                            <Icon name='bars' onClick={this.props.toggleMenu}/>
+                    <Grid.Row verticalAlign='middle'>
+                        <Grid.Column floated='left' width={5}>
+                            <i className="fas fa-bars" onClick={this.props.toggleMenu} style={{marginLeft: 30, fontSize: 22, cursor: 'pointer'}}/>
                         </Grid.Column>
-                        <Grid.Column floated='left' width={4}>
-                            <Link to='city'><img src="http://localhost:9090/images/logo.png" style={{maxHeight: 80}} alt="logo"/></Link>
-                        </Grid.Column>
-                        <Grid.Column floated='right' textAlign='right' width={8} verticalAlign='middle'>
-
-                            {/*<Popup*/}
-                                {/*key={this.getFullUserName()}*/}
-                                {/*trigger={<Icon circular inverted color='teal' name='user'/>}*/}
-                                {/*header={this.getFullUserName()}*/}
-                            {/*/>*/}
-
-
-                            {/*<Icon circular name='search'/>*/}
-                            <Input placeholder='Search' onChange={this.handleSearchInput}/>
+                        <Grid.Column floated='right' width={5} style={{textAlign: 'right'}}>
+                            <Link to='city'>
+                                <img src="http://localhost:9090/images/logo.png" style={{maxHeight: 70}}
+                                     alt="logo"/>
+                            </Link>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
