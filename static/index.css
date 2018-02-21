@@ -1,3 +1,19 @@
 * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.Activity::first-letter {
+    color : #00bf00;
+}
+
+.Side {
+    min-height: 100vh;
+}
+.ui.segment {
+    padding-left: 0!important;
+    padding-right: 0 !important;
+}
+
+.CityName::first-letter {
+    color : #3d3aaf;
+}

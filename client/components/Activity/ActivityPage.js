@@ -32,10 +32,7 @@ export class ActivityPage extends React.Component {
 
     removeActivity(id) {
         ApiService.remove('/api/activity/' + id)
-            .then(content => {
-                this.fetchData();
-                // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
-            });
+            .then(content => this.fetchData());
     }
 
     render() {

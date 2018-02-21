@@ -23,7 +23,7 @@ export class Navbar extends Component {
 
     render() {
         return (
-            <div className="Navbar">
+            <div className="Navbar" style={{marginBottom:'20px', backgroundColor :'transparent',}}>
                 <Grid>
                     <Grid.Row verticalAlign='middle'>
                         <Grid.Column floated='left' width={5}>
