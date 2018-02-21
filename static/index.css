@@ -5,3 +5,16 @@
 .Activity::first-letter {
     color : #00bf00;
 }
+.city_description::first-letter {
+    color : #3d3aaf;
+}
+.city_description{
+    text-indent : '20px';
+    font-size : "1.2em";
+}
+.city_name::first-letter {
+    color : #3d3aaf;
+}
+.city_name{
+    
+}
