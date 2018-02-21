@@ -50,10 +50,11 @@ export class CityPage extends React.Component {
             return (
                 <div>
                     <Image src={city.picture} size='medium' circular centered/>
-                    <Header style={{textAlign:'center'}}     size='huge'>{city.name}
-                        <small>({city.coordinates.long},{city.coordinates.lat})</small>
+                    <Header style={{textAlign:'center',}} className='CityName'     size='huge'>{city.name}
+                        <i className='fas fa-compass'/><small>({city.coordinates.long},{city.coordinates.lat})</small>
                     </Header>
-                    <Container>
+
+                    <Container style={{fontSize :'12pt',}}>
                         {city.description}
                     </Container>
                     <div style={{display: 'flex', flexWrap: 'wrap', justifyContent :'center', alignContent :'center', marginTop : '50px',}}>
