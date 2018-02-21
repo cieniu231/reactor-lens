@@ -75,9 +75,21 @@ app.delete('/api/activity/:id', (req, res) => {
 //});
 
 app.post('/api/city', (req, res) => {
-    db.collection('cities').insertOne(req.body, (error, result) => {
+    let a = Object.assign({
+        coordinates: {lat: req.body.latitude, long: req.body.longitude}}, req.body);
+    a.latitudee = undefined;
+    a.longitude = undefined;
+    db.collection('cities').insertOne(a, (error, result) => {
         res.status(error ? 500 : 200).json(error ? error : result);
     });
+});
+
+app.delete('/api/city/:id', (req, res) => {
+    db.collection('cities').deleteOne({"_id": ObjectID(req.params.id)})
+        .then(city => res.status(200).json(city))
+        .catch(error => {
+            res.status(404).json({message: `No such city with id : ${req.params.id}`});
+        });
 });
 
 

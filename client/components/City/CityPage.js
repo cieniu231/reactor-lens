@@ -4,6 +4,9 @@ import 'react-images-uploader/font.css';
 import {Header, Container, Image, Loader, Item, Label, Input} from "semantic-ui-react";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Link} from "react-router";
+import {CityList} from "./CityList";
+
+
 
 export class CityPage extends React.Component {
     constructor(props) {
@@ -34,7 +37,7 @@ export class CityPage extends React.Component {
                             {a.nature === 'place' ?
                                 <Label icon='globe' content='See more'/>
                                 : <Label icon='globe' content='Book a ticket'/>}
-
+                            <CityList cities={this.state.activities} removeCity={this.removeCity.bind(this)}/>
                         </Item.Extra>
                     </Item.Content>
                 </Item>
@@ -66,4 +69,25 @@ export class CityPage extends React.Component {
         }
 
     }
+
+
+    removeCity(id) {
+        const headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
+
+        fetch(HTTP_SERVER_PORT + '/api/city/' + id, {
+            method: 'DELETE',
+            headers: headers
+        })
+            .then(res => res.json())
+            .then(content => {
+                this.fetchData();
+                // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
+            })
+            .catch(err => {
+                // toast.error(err.message);
+            });
+    }
+
+
+
 }

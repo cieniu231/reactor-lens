@@ -23,7 +23,7 @@ export class Navbar extends Component {
 
     render() {
         return (
-            <div className="Navbar">
+            <div className="Navbar" style={{borderBottom: "1px dotted red"}}>
                 <Grid>
                     <Grid.Row verticalAlign='middle'>
                         <Grid.Column floated='left' width={5}>
