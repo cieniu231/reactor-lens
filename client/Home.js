@@ -48,7 +48,6 @@ export default class Home extends React.Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
-
             </div>
         );
     }
