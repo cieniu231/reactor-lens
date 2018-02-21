@@ -24,11 +24,11 @@ export class SingleActivity extends React.Component {
                 <div>
                     <Image src={activity.picture} size='medium' circular centered/>
                     <div>
-                    <Header className='Activity' size='huge' style={{textAlign: 'center', textTransform :'capitalize', borderBottom : '3px solid #3d3aaf'}}>{activity.name}
+                    <Header className='Activity' size='huge' style={{textAlign: 'center', textTransform :'capitalize', paddingBottom :'50px'}}>{activity.name}
                         {/*<small> ({activity.coordinates.long},{activity.coordinates.lat})</small>*/}
                     </Header>
                     </div>
-                    <Container>
+                    <Container style={{fontSize : '12pt',   }}>
                         {activity.description}
                     </Container>
                     <CommentList activityId={activity._id}/>

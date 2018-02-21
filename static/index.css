@@ -15,6 +15,12 @@
 .city_name::first-letter {
     color : #3d3aaf;
 }
-.city_name{
-    
+.city_name{}
+
+.Side {
+    min-height: 100vh;
+}
+.ui.segment {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
