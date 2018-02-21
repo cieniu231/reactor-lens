@@ -11,7 +11,7 @@ export class LandingPage extends React.Component {
     render() {
         return (
             <div id="landing-page" style={{marginTop : '20px' }}>
-                <div id='carrousel' style={{width : '100%',height : '400px',margin : '20px', overflow : 'hidden', position : 'relative', background : ' linear-gradient(0deg, rgba(61,58,175,1), rgba(0,191,0,0.5)) ,url("images/carousel-img/paris.jpg")'}}>
+                <div id='carrousel' style={{width : '100%',height : '400px',margin : '20px', overflow : 'hidden', position : 'relative', background : ' linear-gradient(0deg, rgba(61,58,175,1), rgba(0,191,0,0.3)) ,url("images/carousel-img/paris.jpg")'}}>
                     <Header size='huge' style={{position:'absolute', color : 'white', top: '50%', left : '50%' , textTransform : 'uppercase', fontSize:'44pt', transform :'translate(-50%, -50%)', borderBottom : 'solid 5px white', paddingBottom : '10px', zIndex : '1',}}>
                         Click. Connect. Explore.
                     </Header>
