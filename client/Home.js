@@ -19,6 +19,7 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Sidebar.Pushable as={Segment}>
+
                     <Sidebar as={Menu} animation='push' width='thin' visible={this.state.menuOpened} icon='labeled' vertical inverted>
                         <Link to='home'>
                             <Menu.Item name='home'>
