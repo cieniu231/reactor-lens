@@ -43,7 +43,12 @@ export default class Home extends React.Component {
                     </Sidebar>
                     <Sidebar.Pusher>
                         <Segment basic className='Side'>
-                            <Navbar toggleMenu={() => this.setState({menuOpened: !this.state.menuOpened})}/>
+                            <Navbar toggleMenu={() => {
+                                if(this.state.menuOpened) {
+
+                                }
+                                this.setState({menuOpened: !this.state.menuOpened})
+                            }}/>
                             {this.props.children}
                         </Segment>
                     </Sidebar.Pusher>
