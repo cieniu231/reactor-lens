@@ -6,36 +6,9 @@ import {CityForm2} from "./CityForm";
 
 
 export class CityList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            creating: false,
-            cities: []
-        };
-
-        this.handleOpen = this.handleOpen.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-    }
-
-
-    handleOpen() {
-        this.setState({creating: true});
-    }
-
-    handleClose() {
-        this.setState({creating: false});
-        this.fetchData();
-    }
-
-    componentDidMount() {
-        fetch(HTTP_SERVER_PORT + '/api/city/')
-            .then(data => data.json())
-            .then(cities => this.setState({cities}))
-    }
-
 
     renderCitiesList() {
-        let {cities} = this.state;
+        let {cities} = this.props;
         let citiesComponents = [];
 
         cities.forEach(c => {
@@ -64,10 +37,6 @@ export class CityList extends React.Component {
 
         return (<div className="cityList"
                      style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>
-
-            <Dimmer active={this.state.creating} onClickOutside={this.handleClose} page>
-                <CityForm2 closeForm={this.handleClose.bind(this)}/>
-            </Dimmer>
             {citiesComponents}
 
         </div>);
@@ -93,14 +62,14 @@ export class CityList extends React.Component {
 
 
     render() {
-        let {cities} = this.state;
+        let {cities} = this.props;
 
         if (cities.length) {
             return (
                 <div>
-                    <Button onClick={this.handleOpen} primary compact><Icon name='plus'/> Add</Button>
                     {this.renderCitiesList()}
                 </div>);
+
         } else {
             return (<Loader indeterminate>Fetching data</Loader>);
         }

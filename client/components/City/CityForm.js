@@ -1,6 +1,7 @@
 import React from "react";
 import {Button, Dropdown, Form, Header, Icon, Input, Segment} from "semantic-ui-react";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
+import {ApiService} from "../../services/ApiService";
 
 export class CityForm2 extends React.Component {
     constructor(props) {
@@ -20,24 +21,12 @@ export class CityForm2 extends React.Component {
     }
 
     handleSubmit(event) {
-        const headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
-
-        fetch(HTTP_SERVER_PORT + '/api/city', {
-            method: 'POST',
-            body: JSON.stringify(this.state),
-            headers: headers
-        })
-            .then(res => res.json())
-            .then(content => {
-                // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
-                this.props.closeForm();
-            })
-            .catch(err => {
-                // toast.error(err.message);
-            });
+        ApiService.post('/api/city', this.state)
+            .then(content => this.props.closeForm());
 
         event.preventDefault();
     }
+
 
     handleInputChange(event) {
         const target = event.target;

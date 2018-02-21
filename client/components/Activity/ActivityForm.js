@@ -22,10 +22,7 @@ export class ActivityForm extends React.Component {
 
     handleSubmit(event) {
         ApiService.post('/api/activity', this.state)
-            .then(content => {
-                // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
-                this.props.closeForm();
-            });
+            .then(content => this.props.closeForm());
 
         event.preventDefault();
     }
