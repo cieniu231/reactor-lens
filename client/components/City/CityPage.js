@@ -50,7 +50,7 @@ export class CityPage extends React.Component {
             return (
                 <div>
                     <Image src={city.picture} size='medium' circular centered/>
-                    <Header centered size='huge'>{city.name}
+                    <Header style={{textAlign:'center'}}     size='huge'>{city.name}
                         <small>({city.coordinates.long},{city.coordinates.lat})</small>
                     </Header>
                     <Container>
