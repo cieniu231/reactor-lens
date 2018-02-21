@@ -10,20 +10,13 @@ export class LandingPage extends React.Component {
     render() {
         return (
             <div id="landing-page" style={{marginTop : '20px' }}>
-                <div id="search-container">
-                    <div id="search-overlay">
-                        <Header style={{position:'absolute', color : 'white', top: '30%', left : '50%' , textTransform : 'uppercase', fontSize:'44pt', transform :'translate(-50%, -50%)', borderBottom : 'solid 5px white', paddingBottom : '10px'}}>
-                            Click. Connect. Explore.
-                        </Header>
-                    </div>
-                    <figure style={{position : 'relative', width : '500%', margin : '0', padding :'0', fontSize : '0',}}>
-                    <img src="images/carousel-img/paris.jpg" alt="Paris" style={{height : '400px', width : '100%',}} />
-                    <img src="images/carousel-img/dubrovnik.jpg" alt="Paris" style={{height : '400px', width : '100%',}} />
-                    <img src="images/carousel-img/saintpetersburg.jpg" alt="Paris" style={{height : '400px', width : '100%',}} />
-
-                    </figure>
+                <div id='carrousel' style={{width : '100%',height : '400px',margin : '20px', overflow : 'hidden', position : 'relative', background : ' linear-gradient(0deg, rgba(61,58,175,1), rgba(0,191,0,0.3)) ,url("images/carousel-img/paris.jpg")'}}>
+                    <Header size='huge' style={{position:'absolute', color : 'white', top: '50%', left : '50%' , textTransform : 'uppercase', fontSize:'44pt', transform :'translate(-50%, -50%)', borderBottom : 'solid 5px white', paddingBottom : '10px', zIndex : '1',}}>
+                        Click. Connect. Explore.
+                    </Header>
                 </div>
-                <Divider horizontal>Last cities added</Divider>
+
+                <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#00bf00'}}>Last cities added</Divider>
                 <CityList style={{justifyContent: 'center', alignContent : 'center'}}/>
              
             </div>

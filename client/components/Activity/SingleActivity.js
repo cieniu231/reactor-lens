@@ -23,9 +23,11 @@ export class SingleActivity extends React.Component {
             return (
                 <div>
                     <Image src={activity.picture} size='medium' circular centered/>
-                    <Header size='huge' style={{textAlign: 'center'}}>{activity.name}
+                    <div>
+                    <Header className='Activity' size='huge' style={{textAlign: 'center', textTransform :'capitalize', borderBottom : '3px solid #3d3aaf'}}>{activity.name}
                         {/*<small> ({activity.coordinates.long},{activity.coordinates.lat})</small>*/}
                     </Header>
+                    </div>
                     <Container>
                         {activity.description}
                     </Container>
