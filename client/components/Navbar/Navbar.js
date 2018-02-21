@@ -30,7 +30,7 @@ export class Navbar extends Component {
                             <i className="fas fa-bars" onClick={this.props.toggleMenu} style={{marginLeft: 30, fontSize: 22, cursor: 'pointer'}}/>
                         </Grid.Column>
                         <Grid.Column floated='right' width={5} style={{textAlign: 'right'}}>
-                            <Link to='city'>
+                            <Link to='home'>
                                 <img src="images/logo.png" style={{maxHeight: 70}}
                                      alt="logo"/>
                             </Link>
