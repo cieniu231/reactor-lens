@@ -36,6 +36,16 @@ app.get('/api/city/:id', (req, res) => {
         });
 });
 
+app.patch('/api/city/:id', (req, res) => {
+    db.collection('cities').findOne({"_id": ObjectID(req.params.id)}, (err, doc) => {
+       if(err) {
+           throw err;
+       }
+        res.status(200).json(doc);
+    });
+
+});
+
 app.get('/api/activity', (req, res) => {
     db.collection('activities')
         .find({})

@@ -33,10 +33,7 @@ export class ActivityPage extends React.Component {
 
     removeActivity(id) {
         ApiService.remove('/api/activity/' + id)
-            .then(content => {
-                this.fetchData();
-                // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
-            });
+            .then(content => this.fetchData());
     }
 
     render() {
@@ -44,10 +41,6 @@ export class ActivityPage extends React.Component {
             <div className="ActivityPage">
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column floated='left' width={6} verticalAlign='middle'>
-                            {/*<Icon name='marker'/>*/}
-                            {/*<Breadcrumb icon='right angle' sections={this.sections} />*/}
-                        </Grid.Column>
                         <Grid.Column floated='right' textAlign='right' width={6} verticalAlign='middle'>
                             <Button onClick={this.handleOpen} primary compact><i className='fas fa-plus'/> Add</Button>
                         </Grid.Column>
