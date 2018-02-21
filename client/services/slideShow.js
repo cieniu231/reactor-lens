@@ -1,1 +1,0 @@
-/*--- here will be the JS function for carousel ---*/
