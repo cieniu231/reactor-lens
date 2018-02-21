@@ -48,12 +48,12 @@ export class CityPage extends React.Component {
         let {city} = this.state;
         if (typeof city !== 'undefined') {
             return (
-                <div>
-                    <Image src={city.picture} size='medium' circular centered/>
+                <div style={{}}>
+                    <Image src={city.picture} size='medium' centered/>
                     <Header style={{textAlign:'center'}}     size='huge'>{city.name}
-                        <small>({city.coordinates.long},{city.coordinates.lat})</small>
+                        <br /><small style={{fontSize : '.6em'}}>({city.coordinates.long},{city.coordinates.lat})</small>
                     </Header>
-                    <Container>
+                    <Container style={{textIndent : '20px', fontSize : "1.2em"}}>
                         {city.description}
                     </Container>
                     <div style={{display: 'flex', flexWrap: 'wrap', justifyContent :'center', alignContent :'center', marginTop : '50px',}}>

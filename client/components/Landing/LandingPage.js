@@ -3,6 +3,7 @@ import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
 import {Divider, Header} from 'semantic-ui-react';
 import {CityList} from '../City/CityList';
+import {ActivityList} from '../Activity/ActivityList';
 
 export class LandingPage extends React.Component {
     
@@ -16,7 +17,9 @@ export class LandingPage extends React.Component {
                     </Header>
                 </div>
 
-                <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#00bf00'}}>Last cities added</Divider>
+                <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#00bf00'}}>Last activities added</Divider>
+                <ActivityList style={{justifyContent: 'center', alignContent : 'center'}}/>
+                <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#3d3aaf'}}>Last cities added</Divider>
                 <CityList style={{justifyContent: 'center', alignContent : 'center'}}/>
              
             </div>
