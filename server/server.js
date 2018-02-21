@@ -36,13 +36,15 @@ app.get('/api/city/:id', (req, res) => {
         });
 });
 
-app.patch('/api/city/:id', (req, res) => {
-    db.collection('cities').findOne({"_id": ObjectID(req.params.id)}, (err, doc) => {
-       if(err) {
-           throw err;
-       }
-        res.status(200).json(doc);
-    });
+app.put('/api/city/:id/activities/', (req, res) => {
+    db.collection('activities')
+        .insertOne(req.body, (error, result) => {
+            db.collection('cities')
+                .updateOne({_id: ObjectID(req.params.id)}, {$push: {activities: result.ops[0]}})
+                .then(data => res.status(200).json(data))
+                .catch(error => res.status(500).json(error));
+        });
+
 
 });
 
@@ -101,18 +103,19 @@ app.post('/api/comment', (req, res) => {
 });
 
 //app.post('/api/city', (req, res) => {
- //   db.collection('cities').insertOne(req.body, (error, result) => {
- //       if (error)
- //           res.status(500).json({message: `Internal Server Error : ${error}`});
- //       else
- //           res.status(200).json({message: `Success`});
- //   });
+//   db.collection('cities').insertOne(req.body, (error, result) => {
+//       if (error)
+//           res.status(500).json({message: `Internal Server Error : ${error}`});
+//       else
+//           res.status(200).json({message: `Success`});
+//   });
 //});
 
 app.post('/api/city', (req, res) => {
     let a = Object.assign({
-        coordinates: {lat: req.body.latitude, long: req.body.longitude}}, req.body);
-   delete a.latitude;
+        coordinates: {lat: req.body.latitude, long: req.body.longitude}
+    }, req.body);
+    delete a.latitude;
     delete a.longitude;
     db.collection('cities').insertOne(a, (error, result) => {
         res.status(error ? 500 : 200).json(error ? error : result);
