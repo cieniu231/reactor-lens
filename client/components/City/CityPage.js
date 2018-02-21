@@ -30,7 +30,7 @@ export class CityPage extends React.Component {
                     <Item.Content>
                         <Item.Header as='a'>{a.name}</Item.Header>
                         <Item.Extra>
-                            <Label>{a.nature}</Label>
+                            <Label style={{textTransform:'capitalize'}}>{a.nature}</Label>
                             {a.nature === 'place' ?
                                 <Label icon='globe' content='See more'/>
                                 : <Label icon='globe' content='Book a ticket'/>}
@@ -56,7 +56,7 @@ export class CityPage extends React.Component {
                     <Container>
                         {city.description}
                     </Container>
-                    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent :'center', alignContent :'center', marginTop : '50px',}}>
                         {this.renderActivities()}
                     </div>
                 </div>

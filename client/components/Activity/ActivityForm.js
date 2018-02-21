@@ -53,7 +53,7 @@ export class ActivityForm extends React.Component {
             <Segment.Group compact>
                 <Segment>
                     <Header as='h2' size='medium'>
-                        <Icon name='cube'/>
+                        <i className='fas fa-cube'/>
                         <Header.Content>
                             Add activity
                         </Header.Content>

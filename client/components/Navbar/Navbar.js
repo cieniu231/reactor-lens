@@ -31,7 +31,7 @@ export class Navbar extends Component {
                         </Grid.Column>
                         <Grid.Column floated='right' width={5} style={{textAlign: 'right'}}>
                             <Link to='city'>
-                                <img src="http://localhost:9090/images/logo.png" style={{maxHeight: 70}}
+                                <img src="images/logo.png" style={{maxHeight: 70}}
                                      alt="logo"/>
                             </Link>
                         </Grid.Column>
