@@ -37,14 +37,17 @@ app.get('/api/city/:id', (req, res) => {
 });
 
 app.get('/api/activity', (req, res) => {
-    db.collection('activities').find({}).sort({ "$natural": -1 })
+    db.collection('activities')
+        .find({})
+        .sort({"$natural": -1})
         .toArray((err, docs) => {
             return res.status(200).json(docs);
         });
 });
 
 app.get('/api/activity/:id', (req, res) => {
-    db.collection('activities').findOne({"_id": ObjectID(req.params.id)})
+    db.collection('activities')
+        .findOne({"_id": ObjectID(req.params.id)})
         .then(city => res.status(200).json(city))
         .catch(error => {
             res.status(404).json({message: `No such activity with id : ${req.params.id}`});
@@ -52,16 +55,38 @@ app.get('/api/activity/:id', (req, res) => {
 });
 
 app.post('/api/activity', (req, res) => {
-    db.collection('activities').insertOne(req.body, (error, result) => {
-        res.status(error ? 500 : 200).json(error ? error : result);
-    });
+    db.collection('activities')
+        .insertOne(req.body, (error, result) => {
+            res.status(error ? 500 : 200).json(error ? error : result);
+        });
 });
 
 app.delete('/api/activity/:id', (req, res) => {
-    db.collection('activities').deleteOne({"_id": ObjectID(req.params.id)})
-        .then(city => res.status(200).json(city))
-        .catch(error => {
-            res.status(404).json({message: `No such activity with id : ${req.params.id}`});
+    db.collection('activities')
+        .deleteOne({"_id": ObjectID(req.params.id)}, (err, result) => {
+            if (err) {
+                res.status(500).json({})
+            } else {
+                db.collection('comments').deleteMany({"activityId": req.params.id}, (errA, resultA) => {
+                    res.status(200).json(resultA)
+                })
+            }
+        })
+});
+
+app.get('/api/comment/forActivityId/:id', (req, res) => {
+    db.collection('comments')
+        .find({activityId: req.params.id})
+        .sort({"$natural": -1})
+        .toArray((error, result) => {
+            res.status(error ? 500 : 200).json(error ? error : result);
+        });
+});
+
+app.post('/api/comment', (req, res) => {
+    db.collection('comments')
+        .insertOne(Object.assign({date: Date.now()}, req.body), (error, result) => {
+            res.status(error ? 500 : 200).json(error ? error : result);
         });
 });
 

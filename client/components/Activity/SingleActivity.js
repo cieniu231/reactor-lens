@@ -2,6 +2,7 @@ import React from "react";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Container, Header, Image, Loader} from "semantic-ui-react";
 import {ApiService} from "../../services/ApiService";
+import {CommentList} from "../Comment/CommentList";
 
 export class SingleActivity extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ export class SingleActivity extends React.Component {
                     <Container>
                         {activity.description}
                     </Container>
-
+                    <CommentList activityId={activity._id}/>
                 </div>
             );
         } else {
