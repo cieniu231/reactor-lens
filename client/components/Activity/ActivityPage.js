@@ -58,7 +58,7 @@ export class ActivityPage extends React.Component {
                             {/*<Breadcrumb icon='right angle' sections={this.sections} />*/}
                         </Grid.Column>
                         <Grid.Column floated='right' textAlign='right' width={6} verticalAlign='middle'>
-                            <Button onClick={this.handleOpen} primary compact><Icon name='plus'/> Dodaj</Button>
+                            <Button onClick={this.handleOpen} primary compact><i className='fas fa-plus'/> Add</Button>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

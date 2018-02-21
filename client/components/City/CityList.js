@@ -44,7 +44,7 @@ export class CityList extends React.Component {
 
 
         return (<div className="cityList"
-                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{citiesComponents}</div>);
+                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40, alignItems: 'center', justifyContent:'center'}}>{citiesComponents}</div>);
 
     }
 

@@ -18,10 +18,9 @@ export class SingleActivity extends React.Component {
 
     render() {
         let {activity} = this.state;
-        if (typeof activity !== 'undefined') {
+        if (typeof activity !== 'undefined' && activity !== null) {
             return (
                 <div>
-
                     <Image src={activity.picture} size='medium' circular centered/>
                     <Header size='huge' style={{textAlign: 'center'}}>{activity.name}
                         {/*<small> ({activity.coordinates.long},{activity.coordinates.lat})</small>*/}
