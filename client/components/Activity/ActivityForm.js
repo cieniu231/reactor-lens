@@ -21,14 +21,10 @@ export class ActivityForm extends React.Component {
     }
 
     handleSubmit(event) {
-        debugger;
         ApiService.post('/api/activity', this.state)
             .then(content => {
                 // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
                 this.props.closeForm();
-            })
-            .catch(err => {
-                // toast.error(err.message);
             });
 
         event.preventDefault();

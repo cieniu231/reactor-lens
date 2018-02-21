@@ -3,6 +3,7 @@ import {Breadcrumb, Button, Dimmer, Grid, Icon} from "semantic-ui-react";
 import {ActivityForm} from "./ActivityForm";
 import {ActivityList} from "./ActivityList";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
+import {ApiService} from "../../services/ApiService";
 
 export class ActivityPage extends React.Component {
     constructor(props) {
@@ -26,25 +27,15 @@ export class ActivityPage extends React.Component {
     }
 
     fetchData() {
-        fetch(HTTP_SERVER_PORT + '/api/activity')
-            .then(data => data.json())
-            .then(activities => this.setState({activities}))
+        ApiService.get('/api/activity')
+            .then(activities => this.setState({activities}));
     }
 
     removeActivity(id) {
-        const headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
-
-        fetch(HTTP_SERVER_PORT + '/api/activity/' + id, {
-            method: 'DELETE',
-            headers: headers
-        })
-            .then(res => res.json())
+        ApiService.remove('/api/activity/' + id)
             .then(content => {
                 this.fetchData();
                 // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
-            })
-            .catch(err => {
-                // toast.error(err.message);
             });
     }
 
