@@ -2,7 +2,6 @@ import React from "react";
 import {Breadcrumb, Button, Dimmer, Grid, Icon} from "semantic-ui-react";
 import {ActivityForm} from "./ActivityForm";
 import {ActivityList} from "./ActivityList";
-import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {ApiService} from "../../services/ApiService";
 
 export class ActivityPage extends React.Component {
@@ -51,7 +50,9 @@ export class ActivityPage extends React.Component {
                     <ActivityForm closeForm={this.handleClose.bind(this)} />
                 </Dimmer>
 
-                <ActivityList activities={this.state.activities} removeActivity={this.removeActivity.bind(this)}/>
+                <ActivityList activities={this.state.activities} removeActivity={(id) => {
+
+                }}/>
             </div>
         )
     }

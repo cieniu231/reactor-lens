@@ -40,6 +40,5 @@ export class ActivityList extends React.Component {
         } else {
             return (<Loader indeterminate>Fetching data</Loader>);
         }
-
     }
 }
