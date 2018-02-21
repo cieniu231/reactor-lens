@@ -1,7 +1,9 @@
-import {Card, Loader, Button, Image} from "semantic-ui-react";
+import {Card, Loader, Button, Dimmer, Image} from "semantic-ui-react";
 import React from "react";
 import {Link} from 'react-router';
 import {HTTP_SERVER_PORT} from "../../../server/constants";
+import {CityForm2} from "./CityForm2";
+
 
 export class CityList extends React.Component {
     constructor(props) {
@@ -39,12 +41,19 @@ export class CityList extends React.Component {
                         </Link>
                     </Card.Content>
                 </Card>
+
             </div>))
+
+
+
+
         });
 
 
         return (<div className="cityList"
-                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{citiesComponents}</div>);
+                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{citiesComponents}<CityForm2/></div>);
+
+
 
     }
 
@@ -56,5 +65,7 @@ export class CityList extends React.Component {
         } else {
             return (<Loader indeterminate>Fetching data</Loader>);
         }
+
+
     }
 }

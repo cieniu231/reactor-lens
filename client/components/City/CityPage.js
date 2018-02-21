@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
-import {Header, Container, Image, Loader, Item, Label} from "semantic-ui-react";
+import {Header, Container, Image, Loader, Item, Label, Input} from "semantic-ui-react";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Link} from "react-router";
 
