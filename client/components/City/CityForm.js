@@ -1,9 +1,8 @@
 import React from "react";
 import {Button, Dropdown, Form, Header, Icon, Input, Segment} from "semantic-ui-react";
-import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {ApiService} from "../../services/ApiService";
 
-export class CityForm2 extends React.Component {
+export class CityForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -41,7 +40,7 @@ export class CityForm2 extends React.Component {
             <Segment.Group compact>
                 <Segment>
                     <Header as='h2' size='medium'>
-                        <Icon name='cube'/>
+                        <i className="fas fa-university" />
                         <Header.Content>
                             Add City
                         </Header.Content>

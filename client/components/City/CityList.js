@@ -27,7 +27,7 @@ export class CityList extends React.Component {
                         <Link to={'city/' + c._id}>
                             <Button basic color='green'>Go to city</Button>
                         </Link>
-                        <Button basic color='red' onClick={() => this.removeCity(c._id)}>Remove</Button>
+                        <Button basic color='red' onClick={() => this.props.removeCity(c._id)}>Remove</Button>
                     </Card.Content>
                 </Card>
 
@@ -42,24 +42,6 @@ export class CityList extends React.Component {
         </div>);
 
     }
-
-    removeCity(id) {
-        const headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
-
-        fetch(HTTP_SERVER_PORT + '/api/city/' + id, {
-            method: 'DELETE',
-            headers: headers
-        })
-            .then(res => res.json())
-            .then(content => {
-                this.fetchData();
-                // toast.success('Zlecenie ' + content.name + ' został pomyślnie dodany');
-            })
-            .catch(err => {
-                // toast.error(err.message);
-            });
-    }
-
 
     render() {
         let {cities} = this.props;

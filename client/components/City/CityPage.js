@@ -30,12 +30,8 @@ export class CityPage extends React.Component {
             .then(cities => this.setState({cities}));
     }
 
-    removeCity(id) {
-        ApiService.remove('/api/city/' + id)
-            .then(content => this.fetchData());
-    }
-
     render() {
+        let {creating, cities} = this.state;
         return (
             <div className="CityPage">
                 <Grid>
@@ -46,11 +42,11 @@ export class CityPage extends React.Component {
                     </Grid.Row>
                 </Grid>
 
-                <Dimmer active={this.state.creating} onClickOutside={this.handleClose} page>
+                <Dimmer active={creating} onClickOutside={this.handleClose} page>
                     <CityForm closeForm={this.handleClose.bind(this)} />
                 </Dimmer>
 
-                <CityList cities={this.state.cities} removeCity={(id) => {
+                <CityList cities={cities} removeCity={(id) => {
                     ApiService.remove('/api/city/' + id)
                         .then(() => this.fetchData());
                 }}/>
