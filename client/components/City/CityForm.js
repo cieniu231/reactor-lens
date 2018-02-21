@@ -9,7 +9,8 @@ export class CityForm extends React.Component {
         this.state = {
             name: '',
             longitude: '',
-            latitude: ''
+            latitude: '',
+            description: ''
         };
 
         this.handleSubmit = this.handleSubmit
@@ -54,6 +55,8 @@ export class CityForm extends React.Component {
                                     value={this.state.longitude} onChange={this.handleInputChange}/>
                         <Form.Field control={Input} label='Latitude' placeholder='Latitude' name='latitude'
                                     value={this.state.latitude} onChange={this.handleInputChange}/>
+                        <Form.Field control={Input} label='Description' placeholder='Description' name='description'
+                                    value={this.state.description} onChange={this.handleInputChange}/>
                         <Form.Field control={Button}>Save</Form.Field>
                     </Form>
                 </Segment>
