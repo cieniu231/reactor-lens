@@ -1,16 +1,15 @@
 import React from "react";
 import {Button, Dropdown, Form, Header, Icon, Input, Segment} from "semantic-ui-react";
-import {ApiService} from '../../services/ApiService';
+import {ApiService} from "../../services/ApiService";
 
-export class ActivityForm extends React.Component {
+export class CityForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             name: '',
-            description: '',
-            url: '',
-            nature: ''
+            longitude: '',
+            latitude: ''
         };
 
         this.handleSubmit = this.handleSubmit
@@ -21,11 +20,12 @@ export class ActivityForm extends React.Component {
     }
 
     handleSubmit(event) {
-        ApiService.post('/api/activity', this.state)
+        ApiService.post('/api/city', this.state)
             .then(content => this.props.closeForm());
 
         event.preventDefault();
     }
+
 
     handleInputChange(event) {
         const target = event.target;
@@ -40,9 +40,9 @@ export class ActivityForm extends React.Component {
             <Segment.Group compact style={{width : '600px',}}>
                 <Segment>
                     <Header as='h2' size='medium'>
-                        <i className='fas fa-cube'/>
+                        <i className="fas fa-university" />
                         <Header.Content>
-                            Add activity
+                            Add City
                         </Header.Content>
                     </Header>
                 </Segment>
@@ -50,22 +50,10 @@ export class ActivityForm extends React.Component {
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Field control={Input} label='Name' placeholder='Name'
                                     name='name' value={this.state.name} onChange={this.handleInputChange}/>
-                        <Form.Field control={Input} label='Description' placeholder='Description' name='description'
-                                    value={this.state.description} onChange={this.handleInputChange}/>
-                        <Form.Field control={() => {
-                            let options = [
-                                {key: 'event', value: 'event', text: 'Event'},
-                                {key: 'place', value: 'place', text: 'Place'}
-                            ];
-
-                            return (
-                                <Dropdown placeholder='Nature'
-                                          onChange={(e, data) => this.setState({nature: data.value})}
-                                          search selection options={options}/>
-                            );
-                        }} label='Nature' placeholder='Nature' name='nature' value={this.state.nature}/>
-                        <Form.Field control={() => <Input label='ApiService://'/>} label='URL' placeholder='URL' name='url'
-                                    value={this.state.url} onChange={this.handleInputChange}/>
+                        <Form.Field control={Input} label='Longitude' placeholder='Longitude' name='longitude'
+                                    value={this.state.longitude} onChange={this.handleInputChange}/>
+                        <Form.Field control={Input} label='Latitude' placeholder='Latitude' name='latitude'
+                                    value={this.state.latitude} onChange={this.handleInputChange}/>
                         <Form.Field control={Button} color='blue'>Save</Form.Field>
                     </Form>
                 </Segment>

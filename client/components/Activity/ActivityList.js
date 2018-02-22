@@ -16,7 +16,7 @@ export class ActivityList extends React.Component {
                             {c.name}
                         </Card.Header>
                         <Card.Meta>
-                            <Label color={c.nature === 'event' ? 'red' : 'green'} tag>{c.nature}</Label>
+                            <Label className={c.nature === 'event' ? "event-label" : "place-label"} tag>{c.nature}</Label>
                         </Card.Meta>
                     </Card.Content>
                     <Card.Content extra>
@@ -43,6 +43,5 @@ export class ActivityList extends React.Component {
         } else {
             return (<Loader indeterminate>Fetching data</Loader>);
         }
-
     }
 }

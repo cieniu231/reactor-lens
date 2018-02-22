@@ -4,9 +4,17 @@ import 'react-images-uploader/font.css';
 import {Divider, Header} from 'semantic-ui-react';
 import {CityList} from '../City/CityList';
 import {ActivityList} from '../Activity/ActivityList';
+import {ApiService} from "../../services/ApiService";
 
 export class LandingPage extends React.Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            cities: []
+        };
+        ApiService.get('/api/city')
+            .then(cities => this.setState({cities}));
+    }
 
     render() {
         return (
@@ -19,7 +27,7 @@ export class LandingPage extends React.Component {
                 <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#00bf00'}}>Last activities added</Divider>
                 <ActivityList style={{justifyContent: 'center', alignContent : 'center'}}/>
                 <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: '#3d3aaf'}}>Last cities added</Divider>
-                <CityList style={{justifyContent: 'center', alignContent : 'center'}}/>
+                <CityList cities={this.state.cities || []} style={{justifyContent: 'center', alignContent : 'center'}}/>
              
             </div>
         );
