@@ -35,7 +35,6 @@ export class CityPage extends React.Component {
         let {creating, cities} = this.state;
         return (
             <div className="CityPage">
-                <Banner/>
                 <Grid>
                     <Grid.Row>
                         <Grid.Column floated='right' textAlign='right' width={6} verticalAlign='middle'>

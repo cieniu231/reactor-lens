@@ -102,15 +102,6 @@ app.post('/api/comment', (req, res) => {
         });
 });
 
-//app.post('/api/city', (req, res) => {
-//   db.collection('cities').insertOne(req.body, (error, result) => {
-//       if (error)
-//           res.status(500).json({message: `Internal Server Error : ${error}`});
-//       else
-//           res.status(200).json({message: `Success`});
-//   });
-//});
-
 app.post('/api/city', (req, res) => {
     let a = Object.assign({
         coordinates: {lat: req.body.latitude, long: req.body.longitude}

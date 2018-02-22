@@ -44,8 +44,6 @@ export class SingleCity extends React.Component {
         if (typeof city !== 'undefined' && city !== null) {
             return (
                 <div>
-                    <Banner/>
-                    <Button style={{position : 'fixed', top : '0', right : '0', border : '0'}} basic color='red' onClick={() => this.removeCity(city._id)}>Remove</Button>
                     <Dimmer active={creating} onClickOutside={this.handleClose.bind(this)} page>
                         <ActivityForm closeForm={this.handleClose.bind(this)} cityId={city._id}/>
                     </Dimmer>
@@ -59,11 +57,12 @@ export class SingleCity extends React.Component {
                         ( Longitude : {city.coordinates.long}, Latitude : {city.coordinates.lat})
                     </Header>
 
-                    <Container style={{fontSize: '12pt', lineHeight : '1.4',}}>
+                    <Container style={{fontSize: '12pt', lineHeight: '1.4',}}>
                         {city.description}
                     </Container>
-                    <div  style={{display : 'flex', justifyContent :'center'}} >
-                    <Button style={{marginTop : '25px',}} onClick={this.handleOpen.bind(this)}>Add Activity</Button>
+                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
+                        <Button basic onClick={this.handleOpen.bind(this)}>Add Activity</Button>
+                        <Button basic color='red' onClick={() => this.removeCity(city._id)}>Remove city</Button>
                     </div>
                     <div style={{
                         display: 'flex',
@@ -85,21 +84,27 @@ export class SingleCity extends React.Component {
         let activities = [];
 
         (this.state.city.activities || []).forEach(a => activities.push((
-            <Link className='ActivityCard' style={{margin : '15px',}} key={a._id} to={'activity/' + a._id}>
+            <Link className='ActivityCard' style={{margin: '15px',}} key={a._id} to={'activity/' + a._id}>
                 <Item>
                     <Item.Image src={a.picture} size='small'/>
 
                     <Item.Content>
-                        <Item.Header className='ActivityTitle' style={{textAlign : 'center', color : 'black', textTransform : 'capitalize', paddingTop : '10px', paddingBottom : '10px',}}>{a.name}</Item.Header>
+                        <Item.Header className='ActivityTitle' style={{
+                            textAlign: 'center',
+                            color: 'black',
+                            textTransform: 'capitalize',
+                            paddingTop: '10px',
+                            paddingBottom: '10px',
+                        }}>{a.name}</Item.Header>
                         <Item.Extra>
                             <Label style={{textTransform: 'capitalize'}}>{a.nature}</Label>
                             {a.nature === 'place' ?
                                 <Label>
-                                    <i className='fas fa-globe' style={{fontSize : '12pt', marginRight : '5px',}}/>
+                                    <i className='fas fa-globe' style={{fontSize: '12pt', marginRight: '5px',}}/>
                                     See more
                                 </Label>
                                 : <Label>
-                                    <i className='fas fa-globe' style={{fontSize : '12pt', marginRight : '5px',}}/>
+                                    <i className='fas fa-globe' style={{fontSize: '12pt', marginRight: '5px',}}/>
                                     Book a Ticket
                                 </Label>}
 

@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
-import {Grid, Icon, Input} from 'semantic-ui-react'
+import './Footer.css';
 
 export class Footer extends Component {
     render() {
         return (
-            <div className="footer-container">
-                <p>&copy; 2018 Colojado - All rights reserved.</p>
+            <div className="Footer">
+                <p>&copy; 2018 <strong>Colojado - Innovation. Creativity. Communication.</strong> REACTOR Lens </p>
             </div>
         );
     }

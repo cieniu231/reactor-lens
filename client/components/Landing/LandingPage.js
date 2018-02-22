@@ -20,10 +20,8 @@ export class LandingPage extends React.Component {
     render() {
         return (
             <div id="landing-page" style={{marginTop : '20px' }}>
-                <Banner/>
                 <Divider horizontal style={{marginTop : '30px', fontSize : '20pt', color: 'black'}}>Last cities added</Divider>
                 <CityList cities={this.state.cities || []} style={{justifyContent: 'center', alignContent : 'center'}}/>
-             
             </div>
         );
     }

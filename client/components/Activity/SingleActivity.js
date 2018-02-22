@@ -26,7 +26,6 @@ export class SingleActivity extends React.Component {
         if (typeof activity !== 'undefined' && activity !== null) {
             return (
                 <div>
-                    <Banner/>
                     <Image src={activity.picture || activity.pictures[0]} size='medium' circular centered/>
                     <Button basic color='red' onClick={() => this.removeCity(activity._id)}>Remove</Button>
                     <div>

@@ -8,26 +8,28 @@ export class ActivityList extends React.Component {
         let activitiesComponents = [];
 
         activities.forEach(c => {
-            activitiesComponents.push((<Link to={'activity/'+c.id} key={c._id}>
-                <Card className='ActivityCard' style={{ margin : '10px',border: '1px solid #3d3aaf'}}>
-                    <Card.Content>
-                        <Image src={c.picture || c.pictures[0]}/>
-                        <Card.Header style={{textTransform : 'capitalize',}}>
-                            {c.name}
-                        </Card.Header>
-                        <Card.Meta style={{marginTop : '15px'}}>
-                            <Label className={c.nature === 'event' ? "event-label" : "place-label"} tag style={{textTransform :'capitalize',}}>{c.nature}</Label>
-                        </Card.Meta>
-                    </Card.Content>
-                </Card>
-            </Link>
+            activitiesComponents.push((<Link to={'activity/' + c._id} key={c._id}>
+                    <Card className='ActivityCard' style={{margin: '10px', border: '1px solid #3d3aaf'}}>
+                        <Card.Content>
+                            <Image src={c.picture || c.pictures[0]}/>
+                            <Card.Header style={{textTransform: 'capitalize',}}>
+                                {c.name}
+                            </Card.Header>
+                            <Card.Meta style={{marginTop: '15px'}}>
+                                <Label className={c.nature === 'event' ? "event-label" : "place-label"} tag
+                                       style={{textTransform: 'capitalize',}}>{c.nature}</Label>
+                            </Card.Meta>
+                        </Card.Content>
+                    </Card>
+                </Link>
             ))
         });
 
 
         return (
             <div>
-                <div className="cityList" style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{activitiesComponents}</div>
+                <div className="cityList"
+                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>{activitiesComponents}</div>
             </div>
         );
     }

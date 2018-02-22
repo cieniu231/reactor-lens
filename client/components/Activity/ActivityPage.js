@@ -35,7 +35,6 @@ export class ActivityPage extends React.Component {
         return (
 
             <div className="ActivityPage">
-                <Banner/>
                 <Grid>
                     <Grid.Row>
                         <Grid.Column floated='right' textAlign='right' width={6} verticalAlign='middle'>
