@@ -6,6 +6,7 @@ import Home from "./Home";
 import {LandingPage} from "./components/Landing/LandingPage";
 import {ActivityPage} from "./components/Activity/ActivityPage";
 import {SingleActivity} from "./components/Activity/SingleActivity";
+import {NotFound} from "./components/Errors/NotFound";
 
 const Routes = (props) => (
     <Router {...props}>
@@ -16,7 +17,7 @@ const Routes = (props) => (
             <Route path="/activity" component={ActivityPage}/>
             <Route path="/activity/:id" component={SingleActivity}/>
         </Route>
-        <Route path="*" component={() => <p>Page Not Found</p>}/>
+        <Route path="*" component={NotFound}/>
     </Router>
 );
 

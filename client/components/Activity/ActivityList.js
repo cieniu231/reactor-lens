@@ -16,7 +16,7 @@ export class ActivityList extends React.Component {
                             {c.name}
                         </Card.Header>
                         <Card.Meta style={{marginTop : '15px',}}>
-                            <Label color={c.nature === 'event' ? 'red' : 'green'} tag>{c.nature}</Label>
+                            <Label color={c.nature === 'event' ? 'red' : 'green'} tag style={{textTransform : 'capitalize',}}>{c.nature}</Label>
                         </Card.Meta>
                     </Card.Content>
                     <Card.Content extra>
