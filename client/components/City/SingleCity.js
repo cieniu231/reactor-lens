@@ -51,10 +51,12 @@ export class SingleCity extends React.Component {
                         ( Longitude : {city.coordinates.long}, Latitude : {city.coordinates.lat})
                     </Header>
 
-                    <Container style={{fontSize: '12pt',}}>
+                    <Container style={{fontSize: '12pt', lineHeight : '1.4',}}>
                         {city.description}
                     </Container>
-                    <Button onClick={this.handleOpen.bind(this)}>Add Activity</Button>
+                    <div  style={{display : 'flex', justifyContent :'center'}} >
+                    <Button style={{marginTop : '25px',}} onClick={this.handleOpen.bind(this)}>Add Activity</Button>
+                    </div>
                     <div style={{
                         display: 'flex',
                         flexWrap: 'wrap',
@@ -75,17 +77,23 @@ export class SingleCity extends React.Component {
         let activities = [];
 
         (this.state.city.activities || []).forEach(a => activities.push((
-            <Link key={a._id} to={'activity/' + a._id}>
+            <Link className='ActivityCard' style={{margin : '15px',}} key={a._id} to={'activity/' + a._id}>
                 <Item>
                     <Item.Image src={a.picture} size='small'/>
 
                     <Item.Content>
-                        <Item.Header as='a'>{a.name}</Item.Header>
+                        <Item.Header className='ActivityTitle' style={{textAlign : 'center', color : 'black', textTransform : 'capitalize', paddingTop : '10px', paddingBottom : '10px',}}>{a.name}</Item.Header>
                         <Item.Extra>
                             <Label style={{textTransform: 'capitalize'}}>{a.nature}</Label>
                             {a.nature === 'place' ?
-                                <Label icon='globe' content='See more'/>
-                                : <Label icon='globe' content='Book a ticket'/>}
+                                <Label>
+                                    <i className='fas fa-globe' style={{fontSize : '12pt', marginRight : '5px',}}/>
+                                    See more
+                                </Label>
+                                : <Label>
+                                    <i className='fas fa-globe' style={{fontSize : '12pt', marginRight : '5px',}}/>
+                                    Book a Ticket
+                                </Label>}
 
                         </Item.Extra>
                     </Item.Content>

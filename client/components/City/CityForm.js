@@ -41,10 +41,10 @@ export class CityForm extends React.Component {
 
     render() {
         return (
-            <Segment.Group compact>
+            <Segment.Group compact style={{width :'400px',}}>
                 <Segment>
                     <Header as='h2' size='medium'>
-                        <i className="fas fa-university" />
+                        <i className="fas fa-university" style={{marginRight : '5px',}}/>
                         <Header.Content>
                             Add City
                         </Header.Content>

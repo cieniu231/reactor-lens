@@ -9,7 +9,7 @@ export class CityList extends React.Component {
 
         cities.forEach(c => {
             citiesComponents.push((<div key={c._id}>
-                <Card style={{marginLeft: '15px', marginRight: '15px', border: '1px solid #3d3aaf'}}>
+                <Card className='CityCard' style={{marginLeft: '15px', marginRight: '15px', border: '1px solid #3d3aaf'}}>
                     <Card.Content>
                         <Image src={c.picture}/>
                         <Card.Header style={{paddingTop: '20px',}}>

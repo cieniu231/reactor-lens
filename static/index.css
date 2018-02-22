@@ -17,3 +17,25 @@
 .CityName::first-letter {
     color : #3d3aaf;
 }
+
+.CityCard {
+    -moz-box-shadow: 5px 5px 5px 0px #3d3aaf !important;
+    -webkit-box-shadow: 5px 5px 5px 0px #3d3aaf !important;
+    -o-box-shadow: 5px 5px 5px 0px #3d3aaf !important;
+    box-shadow: 5px 5px 5px 0px #3d3aaf !important;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d3aaf, Direction=134, Strength=5) !important;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    border-radius: 10px !important;
+}
+
+.CityCard:hover,
+.CityCard:focus {
+    transform: scale(1.1);
+
+}
+
+.cityList {
+    justify-content: center;
+}
+

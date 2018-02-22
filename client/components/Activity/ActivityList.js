@@ -9,10 +9,10 @@ export class ActivityList extends React.Component {
 
         activities.forEach(c => {
             activitiesComponents.push((<div key={c._id}>
-                <Card>
+                <Card style={{ margin : '10px',}}>
                     <Card.Content>
                         <Image src={c.picture}/>
-                        <Card.Header>
+                        <Card.Header style={{textTransform : 'capitalize',}}>
                             {c.name}
                         </Card.Header>
                         <Card.Meta>

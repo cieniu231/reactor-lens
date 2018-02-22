@@ -44,10 +44,10 @@ export class ActivityForm extends React.Component {
 
     render() {
         return (
-            <Segment.Group compact>
+            <Segment.Group compact style={{width : '400px',}}>
                 <Segment>
                     <Header as='h2' size='medium'>
-                        <i className='fas fa-cube'/>
+                        <i className='fas fa-cube' style={{marginRight : '5px'}}/>
                         <Header.Content>
                             Add activity
                         </Header.Content>
@@ -75,7 +75,7 @@ export class ActivityForm extends React.Component {
                                     value={this.state.url} onChange={this.handleInputChange}/>
                         <input id="cityPicture" type="hidden" value=""/>
                         <ImagesUploader
-                            label="Upload a Picture for the City"
+                            label="Upload a Picture for the Activity"
                             url={HTTP_SERVER_PORT_IMAGES} optimisticPreviews multiple={false}
                             onLoadEnd={(err, pictureFileName) => {
                                 if (err) console.error(err);
