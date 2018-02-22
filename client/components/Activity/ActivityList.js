@@ -15,10 +15,8 @@ export class ActivityList extends React.Component {
                         <Card.Header style={{textTransform : 'capitalize',}}>
                             {c.name}
                         </Card.Header>
-                        <Card.Meta style={{marginTop : '15px',}}>
-                            <Label color={c.nature === 'event' ? 'red' : 'green'} tag style={{textTransform : 'capitalize',}}>{c.nature}</Label>
-                        <Card.Meta>
-                            <Label className={c.nature === 'event' ? "event-label" : "place-label"} tag>{c.nature}</Label>
+                        <Card.Meta style={{marginTop : '15px'}}>
+                            <Label className={c.nature === 'event' ? "event-label" : "place-label"} tag style={{textTransform :'capitalize',}}>{c.nature}</Label>
                         </Card.Meta>
                     </Card.Content>
                     <Card.Content extra>
