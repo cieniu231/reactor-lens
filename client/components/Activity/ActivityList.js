@@ -8,7 +8,7 @@ export class ActivityList extends React.Component {
         let activitiesComponents = [];
 
         activities.forEach(c => {
-            activitiesComponents.push((<div key={c._id}>
+            activitiesComponents.push((<Link to={'activity/'+c.id} key={c._id}>
                 <Card className='ActivityCard' style={{ margin : '10px',border: '1px solid #3d3aaf'}}>
                     <Card.Content>
                         <Image src={c.picture || c.pictures[0]}/>
@@ -20,7 +20,8 @@ export class ActivityList extends React.Component {
                         </Card.Meta>
                     </Card.Content>
                 </Card>
-            </Link>))
+            </Link>
+            ))
         });
 
 

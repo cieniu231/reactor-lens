@@ -34,7 +34,6 @@
     background-color: #3d3aaf !important;
     color: white !important;
 }
-=======
 
 .CityName::first-letter {
     color : #3d3aaf;
@@ -75,9 +74,7 @@
 .footer-container {
     text-align: center;
     position:fixed;
-
     bottom:0;
-
     width:100%;
     background-color: #3d3aaf;
     color: black;
@@ -99,7 +96,7 @@
     -moz-border-radius: 10px !important;
     -webkit-border-radius: 10px !important;
     border-radius: 10px !important;
-    opacity: (0.8);
+    opacity: 0.7;
 }
 
 .ActivityCard:hover,
