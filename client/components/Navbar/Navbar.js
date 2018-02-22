@@ -26,7 +26,7 @@ export class Navbar extends Component {
     render() {
         return (
             <div className="Navbar">
-                <Grid relaxed columns={2}>
+                <Grid relaxed columns={1}>
                     <Grid.Column style={{paddingBottom: 0}}>
                         <Link to='home' style={{marginLeft: 15, marginRight: 15}}>
                             <img src="images/logo.png" style={{maxHeight: 55}}
@@ -36,10 +36,6 @@ export class Navbar extends Component {
                         <FancyLink url='city' text='Cities'/>
                         <FancyLink url='activity' text='Activities'/>
                     </Grid.Column>
-                    <Grid.Column className="navbarIcons">
-                        {/*<i className="fas fa-user" />*/}
-                    </Grid.Column>
-
                 </Grid>
             </div>
         );

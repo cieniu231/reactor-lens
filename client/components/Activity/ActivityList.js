@@ -11,7 +11,7 @@ export class ActivityList extends React.Component {
             activitiesComponents.push((<div key={c._id}>
                 <Card className='ActivityCard' style={{ margin : '10px',border: '1px solid #3d3aaf'}}>
                     <Card.Content>
-                        <Image src={c.picture}/>
+                        <Image src={c.picture || c.pictures[0]}/>
                         <Card.Header style={{textTransform : 'capitalize',}}>
                             {c.name}
                         </Card.Header>
@@ -19,14 +19,8 @@ export class ActivityList extends React.Component {
                             <Label className={c.nature === 'event' ? "event-label" : "place-label"} tag style={{textTransform :'capitalize',}}>{c.nature}</Label>
                         </Card.Meta>
                     </Card.Content>
-                    <Card.Content extra>
-                        <Link to={'activity/' + c._id}>
-                            <Button basic color='green'>Preview</Button>
-                        </Link>
-                        <Button basic color='red' onClick={() => this.props.removeActivity(c._id)}>Remove</Button>
-                    </Card.Content>
                 </Card>
-            </div>))
+            </Link>))
         });
 
 

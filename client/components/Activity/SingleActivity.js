@@ -1,6 +1,6 @@
 import React from "react";
 import {HTTP_SERVER_PORT} from "../../../server/constants";
-import {Container, Header, Image, Loader} from "semantic-ui-react";
+import {Button, Container, Header, Image, Loader} from "semantic-ui-react";
 import {ApiService} from "../../services/ApiService";
 import {CommentList} from "../Comment/CommentList";
 import {Banner} from '../Banner/Banner';
@@ -10,12 +10,15 @@ export class SingleActivity extends React.Component {
         super(props);
         this.state = {
             activity: void 0
-        }
-    }
+        };
 
-    componentDidMount() {
         ApiService.get('/api/activity/' + this.props.params.id)
             .then(activity => this.setState({activity}));
+    }
+
+    removeCity(id) {
+        ApiService.remove('/api/city/' + id)
+            .then(() => this.props.router.push('/city'));
     }
 
     render() {
@@ -24,13 +27,16 @@ export class SingleActivity extends React.Component {
             return (
                 <div>
                     <Banner/>
-                    <Image src={activity.picture} size='medium' circular centered/>
+                    <Image src={activity.picture || activity.pictures[0]} size='medium' circular centered/>
+                    <Button basic color='red' onClick={() => this.removeCity(activity._id)}>Remove</Button>
                     <div>
-                    <Header className='Activity' size='huge' style={{textAlign: 'center', textTransform :'capitalize', paddingBottom :'50px'}}>{activity.name}
-                        {/*<small> ({activity.coordinates.long},{activity.coordinates.lat})</small>*/}
-                    </Header>
+                        <Header className='Activity' size='huge' style={{
+                            textAlign: 'center',
+                            textTransform: 'capitalize',
+                            paddingBottom: '50px'
+                        }}>{activity.name}</Header>
                     </div>
-                    <Container style={{fontSize : '12pt',   }}>
+                    <Container style={{fontSize: '12pt',}}>
                         {activity.description}
                     </Container>
                     <CommentList activityId={activity._id}/>

@@ -48,10 +48,7 @@ export class ActivityPage extends React.Component {
                     <ActivityForm closeForm={this.handleClose.bind(this)} />
                 </Dimmer>
 
-                <ActivityList activities={this.state.activities} removeActivity={(id) => {
-                    ApiService.remove('/api/activity/' + id)
-                        .then(content => this.fetchData());
-                }}/>
+                <ActivityList activities={this.state.activities} />
             </div>
         )
     }

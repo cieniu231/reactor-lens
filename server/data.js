@@ -242,7 +242,7 @@ var sealife = {
 var pulp = {
     _id: ObjectId(),
     name: "Pulp Festival",
-    nature: "Event",
+    nature: "event",
     editor: {
         _id: gilles._id,
         email: gilles.email
@@ -306,7 +306,7 @@ var museum = {
 var orange = {
     _id: ObjectId(),
     name: "Orange Warsaw Festival",
-    nature: "Event",
+    nature: "event",
     editor: {
         _id: gilles._id,
         email: gilles.email
