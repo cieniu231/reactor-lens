@@ -3,6 +3,7 @@ import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Button, Container, Header, Image, Loader} from "semantic-ui-react";
 import {ApiService} from "../../services/ApiService";
 import {CommentList} from "../Comment/CommentList";
+import {Banner} from '../Banner/Banner';
 
 export class SingleActivity extends React.Component {
     constructor(props) {
@@ -25,6 +26,7 @@ export class SingleActivity extends React.Component {
         if (typeof activity !== 'undefined' && activity !== null) {
             return (
                 <div>
+                    <Banner/>
                     <Image src={activity.picture || activity.pictures[0]} size='medium' circular centered/>
                     <Button basic color='red' onClick={() => this.removeCity(activity._id)}>Remove</Button>
                     <div>

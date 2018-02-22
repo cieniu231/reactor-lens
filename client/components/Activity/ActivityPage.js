@@ -3,6 +3,7 @@ import {Breadcrumb, Button, Dimmer, Grid, Icon} from "semantic-ui-react";
 import {ActivityForm} from "./ActivityForm";
 import {ActivityList} from "./ActivityList";
 import {ApiService} from "../../services/ApiService";
+import {Banner} from '../Banner/Banner';
 
 export class ActivityPage extends React.Component {
     constructor(props) {
@@ -32,7 +33,9 @@ export class ActivityPage extends React.Component {
 
     render() {
         return (
+
             <div className="ActivityPage">
+                <Banner/>
                 <Grid>
                     <Grid.Row>
                         <Grid.Column floated='right' textAlign='right' width={6} verticalAlign='middle'>
