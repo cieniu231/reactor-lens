@@ -21,8 +21,13 @@ export class ActivityForm extends React.Component {
     }
 
     handleSubmit(event) {
-        ApiService.post('/api/activity', this.state)
-            .then(content => this.props.closeForm());
+        if (typeof this.props.cityId === 'undefined') {
+            ApiService.post('/api/activity', this.state)
+                .then(content => this.props.closeForm());
+        } else {
+            ApiService.put('/api/city/' + this.props.cityId + '/activities', this.state)
+                .then(content => this.props.closeForm());
+        }
 
         event.preventDefault();
     }
@@ -64,7 +69,7 @@ export class ActivityForm extends React.Component {
                                           search selection options={options}/>
                             );
                         }} label='Nature' placeholder='Nature' name='nature' value={this.state.nature}/>
-                        <Form.Field control={() => <Input label='ApiService://'/>} label='URL' placeholder='URL' name='url'
+                        <Form.Field control={() => <Input label='http://'/>} label='URL' placeholder='URL' name='url'
                                     value={this.state.url} onChange={this.handleInputChange}/>
                         <Form.Field control={Button} color='blue'>Save</Form.Field>
                     </Form>

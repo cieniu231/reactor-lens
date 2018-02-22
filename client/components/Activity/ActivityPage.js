@@ -30,11 +30,6 @@ export class ActivityPage extends React.Component {
             .then(activities => this.setState({activities}));
     }
 
-    removeActivity(id) {
-        ApiService.remove('/api/activity/' + id)
-            .then(content => this.fetchData());
-    }
-
     render() {
         return (
             <div className="ActivityPage">
@@ -51,7 +46,8 @@ export class ActivityPage extends React.Component {
                 </Dimmer>
 
                 <ActivityList activities={this.state.activities} removeActivity={(id) => {
-
+                    ApiService.remove('/api/activity/' + id)
+                        .then(content => this.fetchData());
                 }}/>
             </div>
         )

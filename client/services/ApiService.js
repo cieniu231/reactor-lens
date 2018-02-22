@@ -28,5 +28,17 @@ export const ApiService = {
         return fetch(HTTP_SERVER_PORT + url, options)
             .then(res => res.json())
             .catch(err => console.error(err));
+    },
+    put: (url, body) => {
+        const headers = new Headers({'Content-Type': 'application/json; charset=UTF-8'});
+        let options = {
+            method: 'PUT',
+            body: JSON.stringify(body),
+            headers: headers
+        };
+
+        return fetch(HTTP_SERVER_PORT + url, options)
+            .then(res => res.json())
+            .catch(err => console.error(err));
     }
 };
