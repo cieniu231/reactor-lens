@@ -43,9 +43,12 @@ export class SingleCity extends React.Component {
                     </Dimmer>
 
                     <Image src={city.picture} size='medium' circular centered/>
-                    <Header style={{textAlign: 'center'}} className='CityName' size='huge'>{city.name}
-                        <i className='fas fa-compass'/>
-                        <small>({city.coordinates.long},{city.coordinates.lat})</small>
+                    <Header style={{textAlign: 'center'}} className='CityName' size='huge'>
+                        {city.name}
+                    </Header>
+                    <Header style={{textAlign : 'center', marginTop : '5px'}} size='small'>
+                        <i className='fas fa-compass' style={{fontSize : '16pt', marginRight : '10px',}}/>
+                        ( Longitude : {city.coordinates.long}, Latitude : {city.coordinates.lat})
                     </Header>
 
                     <Container style={{fontSize: '12pt',}}>

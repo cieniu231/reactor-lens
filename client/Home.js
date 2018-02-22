@@ -41,7 +41,7 @@ export default class Home extends React.Component {
                             </Menu.Item>
                         </Link>
                     </Sidebar>
-                    <Sidebar.Pusher>
+                    <Sidebar.Pusher style={{transition : 'all 100ms ease-in-out', marginRight: this.state.menuOpened ? '150px' : '0'}}>
                         <Segment basic className='Side'>
                             <Navbar toggleMenu={() => {
                                 if(this.state.menuOpened) {
