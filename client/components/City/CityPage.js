@@ -46,10 +46,7 @@ export class CityPage extends React.Component {
                     <CityForm closeForm={this.handleClose.bind(this)} />
                 </Dimmer>
 
-                <CityList cities={cities} removeCity={(id) => {
-                    ApiService.remove('/api/city/' + id)
-                        .then(() => this.fetchData());
-                }}/>
+                <CityList cities={cities} />
             </div>
         )
     }

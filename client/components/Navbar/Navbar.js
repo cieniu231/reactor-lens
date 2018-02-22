@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {Grid, Icon, Input} from 'semantic-ui-react'
+import {Grid} from 'semantic-ui-react'
+import {FancyLink} from "../FancyLink/FancyLink";
+import './Navbar.css';
 
 export class Navbar extends Component {
     constructor(props) {
@@ -23,19 +25,21 @@ export class Navbar extends Component {
 
     render() {
         return (
-            <div className="Navbar" style={{marginBottom:'20px', backgroundColor :'transparent',}}>
-                <Grid>
-                    <Grid.Row verticalAlign='middle'>
-                        <Grid.Column floated='left' width={5}>
-                            <i className="fas fa-bars" onClick={this.props.toggleMenu} style={{marginLeft: 30, fontSize: 22, cursor: 'pointer'}}/>
-                        </Grid.Column>
-                        <Grid.Column floated='right' width={5} style={{textAlign: 'right'}}>
-                            <Link to='home'>
-                                <img src="images/logo.png" style={{maxHeight: 70}}
-                                     alt="logo"/>
-                            </Link>
-                        </Grid.Column>
-                    </Grid.Row>
+            <div className="Navbar">
+                <Grid relaxed columns={2}>
+                    <Grid.Column style={{paddingBottom: 0}}>
+                        <Link to='home' style={{marginLeft: 15, marginRight: 15}}>
+                            <img src="images/logo.png" style={{maxHeight: 55}}
+                                 alt="logo"/>
+                        </Link>
+                        <FancyLink url='home' text='Home'/>
+                        <FancyLink url='city' text='Cities'/>
+                        <FancyLink url='activity' text='Activities'/>
+                    </Grid.Column>
+                    <Grid.Column className="navbarIcons">
+                        {/*<i className="fas fa-user" />*/}
+                    </Grid.Column>
+
                 </Grid>
             </div>
         );

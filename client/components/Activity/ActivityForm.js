@@ -79,7 +79,7 @@ export class ActivityForm extends React.Component {
                             url={HTTP_SERVER_PORT_IMAGES} optimisticPreviews multiple={false}
                             onLoadEnd={(err, pictureFileName) => {
                                 if (err) console.error(err);
-                                else  {this.setState({picture: pictureFileName})};
+                                else  {this.setState({picture: pictureFileName})}
                             }}
                         />
                         <Form.Field control={Button} color='blue'>Save</Form.Field>

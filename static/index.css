@@ -22,6 +22,7 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+<<<<<<< HEAD
 .list_title {
     text-align: center;
     text-transform: uppercase;
@@ -35,3 +36,9 @@
     background-color: #3d3aaf !important;
     color: white !important;
 }
+=======
+
+.CityName::first-letter {
+    color : #3d3aaf;
+}
+>>>>>>> cda41fe18eb031e230ce93731f8a7a30ab7864a1
