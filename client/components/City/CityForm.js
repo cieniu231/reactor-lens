@@ -69,7 +69,7 @@ export class CityForm extends React.Component {
                                 else  {this.setState({picture: pictureFileName})};
                             }}
                         />
-                        <Form.Field control={Button}>Save</Form.Field>
+                        <Form.Field control={Button} color="blue">Save</Form.Field>
                     </Form>
                 </Segment>
             </Segment.Group>

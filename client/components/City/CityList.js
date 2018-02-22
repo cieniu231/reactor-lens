@@ -22,7 +22,7 @@ export class CityList extends React.Component {
                 </Card>
             </Link>))
         });
-
+        
         return (<div className="cityList"
                      style={{display: 'flex', flexWrap: 'wrap', marginTop: 40, justifyContent : 'center', alignContent : 'center',}}>
             {citiesComponents}

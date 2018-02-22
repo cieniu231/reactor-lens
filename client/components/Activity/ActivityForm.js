@@ -44,7 +44,7 @@ export class ActivityForm extends React.Component {
 
     render() {
         return (
-            <Segment.Group compact style={{width : '400px',}}>
+            <Segment.Group compact style={{width : '600px',}}>
                 <Segment>
                     <Header as='h2' size='medium'>
                         <i className='fas fa-cube' style={{marginRight : '5px'}}/>
@@ -82,7 +82,7 @@ export class ActivityForm extends React.Component {
                                 else  {this.setState({picture: pictureFileName})}
                             }}
                         />
-                        <Form.Field control={Button}>Save</Form.Field>
+                        <Form.Field control={Button} color='blue'>Save</Form.Field>
                     </Form>
                 </Segment>
             </Segment.Group>

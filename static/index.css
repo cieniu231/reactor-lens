@@ -1,18 +1,42 @@
 * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 .Activity::first-letter {
-    color : #00bf00;
+    color: #00bf00;
 }
-
+.city_description::first-letter {
+    color: #3d3aaf;
+}
+.city_description {
+    text-indent: '20px';
+    font-size: "1.2em";
+}
+.city_name::first-letter {
+    color: #3d3aaf;
+}
+.city_name {}
 .Side {
     min-height: 100vh;
 }
 .ui.segment {
-    padding-left: 0!important;
+    padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
+.list_title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 28pt;
+}
+.event-label {
+    background-color: #00bf00 !important;
+    color: white !important;
+}
+.place-label {
+    background-color: #3d3aaf !important;
+    color: white !important;
+}
+=======
 
 .CityName::first-letter {
     color : #3d3aaf;

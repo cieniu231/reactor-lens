@@ -31,7 +31,6 @@ export class CityPage extends React.Component {
     }
 
     render() {
-
         let {creating, cities} = this.state;
         return (
             <div className="CityPage">
