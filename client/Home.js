@@ -6,7 +6,6 @@ import {Footer} from './components/Footer/Footer'
 import {Banner} from "./components/Banner/Banner";
 
 export default class Home extends React.Component {
-
     render() {
         return (
             <div>
@@ -19,3 +18,5 @@ export default class Home extends React.Component {
         );
     }
 }
+
+// final version
