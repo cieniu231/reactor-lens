@@ -15,7 +15,7 @@ export class CityList extends React.Component {
                         <Card.Header style={{paddingTop: '20px',}}>
                             {c.name}
                         </Card.Header>
-                        <Card.Meta>
+                        <Card.Meta style={{color : 'black'}}>
                             {(c.coordinates || {}).long + ', ' + (c.coordinates || {}).lat}
                         </Card.Meta>
                     </Card.Content>
@@ -32,7 +32,7 @@ export class CityList extends React.Component {
         });
         
         return (<div className="cityList"
-                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40}}>
+                     style={{display: 'flex', flexWrap: 'wrap', marginTop: 40, justifyContent : 'center', alignContent : 'center',}}>
             {citiesComponents}
         </div>);
     }
