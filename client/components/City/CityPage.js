@@ -3,6 +3,7 @@ import {Breadcrumb, Button, Dimmer, Grid, Icon} from "semantic-ui-react";
 import {CityForm} from "./CityForm";
 import {CityList} from "./CityList";
 import {ApiService} from "../../services/ApiService";
+import {Banner} from '../Banner/Banner';
 
 export class CityPage extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ export class CityPage extends React.Component {
         let {creating, cities} = this.state;
         return (
             <div className="CityPage">
+                <Banner/>
                 <Grid>
                     <Grid.Row>
                         <Grid.Column floated='right' textAlign='right' width={6} verticalAlign='middle'>

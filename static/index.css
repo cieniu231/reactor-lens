@@ -65,3 +65,21 @@
     color: #00bf00;
 }
 
+
+.footer-container {
+    text-align: center;
+    position:fixed;
+
+    bottom:0;
+
+    width:100%;
+    background-color: #3d3aaf;
+    color: black;
+    font-size: 12pt;
+    margin: auto;
+}
+
+.footer-container p {
+    margin: auto;
+    vertical-align: center;
+}

@@ -3,6 +3,7 @@ import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Container, Header, Image, Loader} from "semantic-ui-react";
 import {ApiService} from "../../services/ApiService";
 import {CommentList} from "../Comment/CommentList";
+import {Banner} from '../Banner/Banner';
 
 export class SingleActivity extends React.Component {
     constructor(props) {
@@ -22,6 +23,7 @@ export class SingleActivity extends React.Component {
         if (typeof activity !== 'undefined' && activity !== null) {
             return (
                 <div>
+                    <Banner/>
                     <Image src={activity.picture} size='medium' circular centered/>
                     <div>
                     <Header className='Activity' size='huge' style={{textAlign: 'center', textTransform :'capitalize', paddingBottom :'50px'}}>{activity.name}

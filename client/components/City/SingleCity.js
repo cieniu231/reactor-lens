@@ -6,6 +6,7 @@ import {Link} from "react-router";
 import {ApiService} from "../../services/ApiService";
 import {browserHistory} from 'react-router';
 import {ActivityForm} from "../Activity/ActivityForm";
+import {Banner} from '../Banner/Banner';
 
 
 export class SingleCity extends React.Component {
@@ -43,7 +44,8 @@ export class SingleCity extends React.Component {
         if (typeof city !== 'undefined' && city !== null) {
             return (
                 <div>
-                    <Button basic color='red' onClick={() => this.removeCity(city._id)}>Remove</Button>
+                    <Banner/>
+                    <Button style={{position : 'fixed', top : '0', right : '0', border : '0'}} basic color='red' onClick={() => this.removeCity(city._id)}>Remove</Button>
                     <Dimmer active={creating} onClickOutside={this.handleClose.bind(this)} page>
                         <ActivityForm closeForm={this.handleClose.bind(this)} cityId={city._id}/>
                     </Dimmer>
