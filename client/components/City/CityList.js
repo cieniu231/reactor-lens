@@ -19,16 +19,8 @@ export class CityList extends React.Component {
                             {(c.coordinates || {}).long + ', ' + (c.coordinates || {}).lat}
                         </Card.Meta>
                     </Card.Content>
-                    <Card.Content extra>
-                        <Link to={'city/' + c._id}>
-                            <Button basic color='green' className='CityButton'>Go to city</Button>
-                        </Link>
-                        <Button basic color='red' onClick={() => this.props.removeCity(c._id)}>Remove</Button>
-                    </Card.Content>
                 </Card>
-
-
-            </div>))
+            </Link>))
         });
 
         return (<div className="cityList"

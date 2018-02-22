@@ -10,9 +10,10 @@ export class CommentList extends React.Component {
             text: '',
             author: ''
         };
+        this.fetchData();
     }
 
-    componentDidMount() {
+    fetchData() {
         ApiService.get('/api/comment/forActivityId/' + this.props.activityId)
             .then(comments => this.setState({comments}));
     }
@@ -32,7 +33,7 @@ export class CommentList extends React.Component {
         comments.forEach(item => {
             commentsComponents.push((
                 <Comment key={item._id}>
-                    <Comment.Avatar src='images/elliot.jpg' />
+                    <Comment.Avatar src='images/elliot.jpg'/>
                     <Comment.Content>
                         <Comment.Author>{item.author}</Comment.Author>
                         <Comment.Metadata>
@@ -40,7 +41,8 @@ export class CommentList extends React.Component {
                         </Comment.Metadata>
                         <Comment.Text>{item.text}</Comment.Text>
                         <Comment.Actions>
-                            <Comment.Action>Like</Comment.Action>
+                            <Comment.Action><i className="fas fa-thumbs-up" /> Like</Comment.Action>
+                            <Comment.Action><i className="fas fa-share-alt" /> Share</Comment.Action>
                         </Comment.Actions>
                     </Comment.Content>
                 </Comment>
@@ -53,31 +55,23 @@ export class CommentList extends React.Component {
     render() {
         return (
             <div>
-                <Input name='text' value={this.state.text} placeholder='Add a comment...' onChange={this.handleInputChange.bind(this)}/>
-                <Input name='author'value={this.state.author} placeholder='Your name...' onChange={this.handleInputChange.bind(this)}/>
+                <Input name='text' value={this.state.text} placeholder='Add a comment...'
+                       onChange={this.handleInputChange.bind(this)}/>
+                <Input name='author' value={this.state.author} placeholder='Your name...'
+                       onChange={this.handleInputChange.bind(this)}/>
                 <Button onClick={() => {
                     let {text, author} = this.state;
                     ApiService.post('/api/comment', {
                         activityId: this.props.activityId,
                         text,
                         author
-                    }).then(res => {
-                        ApiService.get('/api/comment/forActivityId/' + this.props.activityId)
-                            .then(comments => this.setState({comments}));
-                    })
+                    }).then(res => this.fetchData());
                 }}>
                     Save
                 </Button>
                 <Header as='h3' dividing>Comments</Header>
                 {this.renderComments()}
-
             </div>
         );
-
-        // if(comments.length) {
-        //     return this.renderComments()
-        // } else {
-        //     return (<Loader>Loading data</Loader>);
-        // }
     }
 }
