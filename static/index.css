@@ -41,19 +41,25 @@
 }
 
 .CityCard {
-    -moz-box-shadow: 5px 5px 5px 0px #3d3aaf !important;
-    -webkit-box-shadow: 5px 5px 5px 0px #3d3aaf !important;
-    -o-box-shadow: 5px 5px 5px 0px #3d3aaf !important;
-    box-shadow: 5px 5px 5px 0px #3d3aaf !important;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d3aaf, Direction=134, Strength=5) !important;
+    -moz-box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    -webkit-box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    -o-box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#d3d3d3, Direction=134, Strength=5) !important;
     -moz-border-radius: 10px !important;
     -webkit-border-radius: 10px !important;
     border-radius: 10px !important;
+    opacity:0.7;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .CityCard:hover,
 .CityCard:focus {
-    transform: scale(1.1);
+    opacity: 1;
 
 }
 
@@ -82,4 +88,22 @@
 .footer-container p {
     margin: auto;
     vertical-align: center;
+}
+
+.ActivityCard {
+    -moz-box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    -webkit-box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    -o-box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    box-shadow: 5px 5px 5px 0px #d3d3d3 !important;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#d3d3d3, Direction=134, Strength=5) !important;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    border-radius: 10px !important;
+    opacity: (0.8);
+}
+
+.ActivityCard:hover,
+.ActivityCard:focus {
+    opacity: 1;
+
 }
