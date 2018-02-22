@@ -2,9 +2,9 @@ import React from 'react';
 import 'react-images-uploader/styles.css';
 import 'react-images-uploader/font.css';
 import {Header, Container, Image, Loader, Item, Label, Input, Dimmer, Button} from "semantic-ui-react";
-import {HTTP_SERVER_PORT} from "../../../server/constants";
 import {Link} from "react-router";
 import {ApiService} from "../../services/ApiService";
+import {browserHistory} from 'react-router';
 import {ActivityForm} from "../Activity/ActivityForm";
 
 
@@ -32,12 +32,18 @@ export class SingleCity extends React.Component {
         this.fetchData();
     }
 
+    removeCity(id) {
+        ApiService.remove('/api/city/' + id)
+            .then(() => this.props.router.push('/city'));
+    }
+
 
     render() {
         let {city, creating} = this.state;
         if (typeof city !== 'undefined' && city !== null) {
             return (
                 <div>
+                    <Button basic color='red' onClick={() => this.removeCity(city._id)}>Remove</Button>
                     <Dimmer active={creating} onClickOutside={this.handleClose.bind(this)} page>
                         <ActivityForm closeForm={this.handleClose.bind(this)} cityId={city._id}/>
                     </Dimmer>
@@ -46,8 +52,8 @@ export class SingleCity extends React.Component {
                     <Header style={{textAlign: 'center'}} className='CityName' size='huge'>
                         {city.name}
                     </Header>
-                    <Header style={{textAlign : 'center', marginTop : '5px'}} size='small'>
-                        <i className='fas fa-compass' style={{fontSize : '16pt', marginRight : '10px',}}/>
+                    <Header style={{textAlign: 'center', marginTop: '5px'}} size='small'>
+                        <i className='fas fa-compass' style={{fontSize: '16pt', marginRight: '10px',}}/>
                         ( Longitude : {city.coordinates.long}, Latitude : {city.coordinates.lat})
                     </Header>
 

@@ -8,7 +8,7 @@ export class CityList extends React.Component {
         let citiesComponents = [];
 
         cities.forEach(c => {
-            citiesComponents.push((<div key={c._id}>
+            citiesComponents.push((<Link to={'city/' + c._id} key={c._id}>
                 <Card style={{marginLeft: '15px', marginRight: '15px', border: '1px solid #3d3aaf'}}>
                     <Card.Content>
                         <Image src={c.picture}/>
@@ -19,16 +19,8 @@ export class CityList extends React.Component {
                             {(c.coordinates || {}).long + ', ' + (c.coordinates || {}).lat}
                         </Card.Meta>
                     </Card.Content>
-                    <Card.Content extra>
-                        <Link to={'city/' + c._id}>
-                            <Button basic color='green' className='CityButton'>Go to city</Button>
-                        </Link>
-                        <Button basic color='red' onClick={() => this.props.removeCity(c._id)}>Remove</Button>
-                    </Card.Content>
                 </Card>
-
-
-            </div>))
+            </Link>))
         });
 
         return (<div className="cityList"
