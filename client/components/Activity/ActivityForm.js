@@ -1,6 +1,8 @@
 import React from "react";
 import {Button, Dropdown, Form, Header, Icon, Input, Segment} from "semantic-ui-react";
 import {ApiService} from '../../services/ApiService';
+import {HTTP_SERVER_PORT_IMAGES} from "../../../server/constants";
+import ImagesUploader from 'react-images-uploader';
 
 export class ActivityForm extends React.Component {
     constructor(props) {
@@ -71,6 +73,15 @@ export class ActivityForm extends React.Component {
                         }} label='Nature' placeholder='Nature' name='nature' value={this.state.nature}/>
                         <Form.Field control={() => <Input label='http://'/>} label='URL' placeholder='URL' name='url'
                                     value={this.state.url} onChange={this.handleInputChange}/>
+                        <input id="cityPicture" type="hidden" value=""/>
+                        <ImagesUploader
+                            label="Upload a Picture for the City"
+                            url={HTTP_SERVER_PORT_IMAGES} optimisticPreviews multiple={false}
+                            onLoadEnd={(err, pictureFileName) => {
+                                if (err) console.error(err);
+                                else  {this.setState({picture: pictureFileName})};
+                            }}
+                        />
                         <Form.Field control={Button}>Save</Form.Field>
                     </Form>
                 </Segment>
